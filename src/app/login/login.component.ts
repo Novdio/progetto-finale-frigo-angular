@@ -14,8 +14,8 @@ export class LoginComponent {
   login()
   {
     //MOCK, li prende da una form
-    let username = 'stefano@mailfinta.fint';
-    let password = 'paperino2';
+    let username = '';
+    let password = '';
 
     this.authService.login(username,password).subscribe(
       {
@@ -23,6 +23,10 @@ export class LoginComponent {
         {
           localStorage.setItem("token",data.accessToken);//memoria 
           localStorage.setItem("role",data.role);//memoria 
+        },
+        error:data =>
+        {
+          
         }
       }
     )
