@@ -42,6 +42,5 @@
     "@angular/material": "^latest-version",
     "@angular/cdk": "^latest-version",
     "@angular/animations": "^latest-version"
-    
   }
 }

@@ -32,7 +32,6 @@ export class FormLoginComponent {
         {
           localStorage.setItem("token",data.accessToken);//memoria 
           localStorage.setItem("role",data.role);//memoria 
-          alert("Ora sei loggato!")
         },
         error:err=>
         {

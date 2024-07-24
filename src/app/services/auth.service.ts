@@ -1,3 +1,4 @@
+import { P } from '@angular/cdk/keycodes';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -36,5 +37,19 @@ export class AuthService {
   userHasRole(role:string)
   {
     return this.isLogged() && this.getUserRole()==role;
+  }
+
+  signIn( username:string,password:string)
+  {
+    let body = {'username':username,'password':password}
+    return this.http.post<any>("/api/auth/register",body)
+  }
+
+  signlogin(username:string,password:string)
+  {
+    this.signIn(username,password);
+    this.login(username,password);
+
+    return alert("U dit it!")
   }
 }

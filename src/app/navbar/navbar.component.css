@@ -13,4 +13,26 @@
     margin-left: 1rem;
 }
 
+.profile
+{
+    width: auto;
+    height: 2.6rem;
+    position: fixed;
+    right: -10rem;
+    top: 0.8rem;
+}
+
+.logout
+{
+    position: relative;
+    right: -10rem;
+}
+
+.franco
+{
+    top: 3.3rem;
+    right: 3rem;
+}
+
+
 
