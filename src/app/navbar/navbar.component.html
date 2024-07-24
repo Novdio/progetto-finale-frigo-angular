@@ -1,18 +1,22 @@
 <nav class="bg-[#8CC084] p-4" >
     <div class="container mx-auto flex justify-between items-center">
-        <img src="assets/images/logo.png" class="image" alt="Logo">
+        <img src="assets/images/pingu.png" class="image" alt="Logo">
       <div>
         <button class="home-button font-bold text-white hover:text-gray-400 mx-2" routerLink="/">HOME</button>
     </div>
-        <svg class="imagehouse" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
-            <path
-                d="M11 39h7.5V26.5h11V39H37V19.5L24 9.75 11 19.5Zm-3 3V18L24 6l16 12v24H26.5V29.5h-5V42Zm16-17.65Z" />
-            </svg>
         <!-- <button [ngClass]="{'text-gray-600': !auth.isLogged(),'text-white hover:text-gray-400':auth.isLogged()}" class="mx-2" [disabled]="!auth.isLogged()" routerLink="/logged">UTENTI LOGGATI</button> -->
         <button [ngClass]="{'hidden': !auth.userHasRole('ADMIN'),}" class=" text-white hover:text-gray-400 mx-2" [disabled]="!auth.userHasRole('ADMIN')" routerLink="/admin">ADMIN</button>
-      <div>
-        <button class="rounded-md bg-orange-600 text-sm mt-3 p-2 mx-2" routerLink="/singin">Sing in</button>
-        <button class="rounded-md bg-orange-600 text-sm mt-3 p-2 mx-2" routerLink="/login">Login</button>
-      </div>
+        <div class="flex flex-wrap justify-center gap-6 ">
+          <!-- <button class="rounded-md bg-orange-600 text-sm mt-3 p-2 mx-2" routerLink="/singin">Sing in</button> -->
+          <!-- <button class="rounded-md bg-orange-600 text-sm mt-3 p-2 mx-2" routerLink="/login">Login</button> -->
+          <a class="relative" routerLink="/login">
+            <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+            <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Login</span>
+          </a>
+          <a class="relative" href="/signin">
+            <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+            <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Sign in</span>
+          </a>
+        </div>
     </div>
-  </nav>
+</nav>

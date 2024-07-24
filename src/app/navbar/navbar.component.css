@@ -1,14 +1,14 @@
 .image
 {
     width: auto;
-    height: 7%;
+    height: 11%;
     position: absolute;
-    left: 10px;
+    left: -5px;
 }
 
 .home-button
 {
-    margin-left: -65px;
+    margin-left: -100px;
 }
 
 .imagehouse
