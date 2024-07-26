@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-confirmation-page',
@@ -9,5 +10,11 @@ import { Component } from '@angular/core';
 })
 export class ConfirmationPageComponent 
 {
+  constructor(private route:ActivatedRoute)
+  {
+    let token:string=route.snapshot.paramMap.get("token")!;
+    localStorage.setItem("token",token);
+  }
+  
   
 }
