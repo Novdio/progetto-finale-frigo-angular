@@ -39,17 +39,17 @@ export class AuthService {
     return this.isLogged() && this.getUserRole()==role;
   }
 
-  signIn( username:string,password:string)
+  signIn( username:string,password:string,email:string)
   {
-    let body = {'username':username,'password':password}
-    return this.http.post<any>("/api/auth/register",body)
+    let body = {'username':username,'password':password,'email':email}
+    return this.http.post("/api/auth/register",body,{ responseType: 'text' })
   }
 
-  signlogin(username:string,password:string)
-  {
-    this.signIn(username,password);
-    this.login(username,password);
+  // signlogin(username:string,password:string)
+  // {
+  //   this.signIn(username,password);
+  //   this.login(username,password);
 
-    return alert("U dit it!")
-  }
+  //   return alert("U dit it!")
+  // }
 }
