@@ -19,6 +19,7 @@ export class FormSigninComponent {
     {
       username:new FormControl("", [Validators.required]),
       password:new FormControl("", [Validators.required,Validators.pattern('^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$')]),
+      email:new FormControl("", [Validators.required])
       //confirmPassword: new FormControl("", [Validators.required])
     }
   )
@@ -35,18 +36,9 @@ export class FormSigninComponent {
 
   signinUser()
   {
-    this.authSev.signIn(this.formSignin.value.username,this.formSignin.value.password).subscribe
+    this.authSev.signIn(this.formSignin.value.username,this.formSignin.value.password,this.formSignin.value.email).subscribe
     (
-      {
-        next:data=>
-        {
-          localStorage.setItem("token",data.accessToken);//memoria 
-          localStorage.setItem("role",data.role);//memoria 
-        },
-        error:err=>
-        {
-        }
-      }
+      resp=>this.router.navigate(["registrationSuccessfull"])
     )
   }
   
