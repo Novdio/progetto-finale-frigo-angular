@@ -1,1 +1,30 @@
-<p>monitoraggio-salute works!</p>
+<div class="container">
+    <form [formGroup]="monitoraggioForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="peso">Peso (kg):</label>
+        <input id="peso" formControlName="peso" type="number">
+      </div>
+      <div>
+        <label for="altezza">Altezza (cm):</label>
+        <input id="altezza" formControlName="altezza" type="number">
+      </div>
+      <div>
+        <label for="età">Età:</label>
+        <input id="età" formControlName="età" type="number">
+      </div>
+      <div>
+        <label for="sesso">Sesso:</label>
+        <select id="sesso" formControlName="sesso">
+          <option value="M">Maschio</option>
+          <option value="F">Femmina</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="!monitoraggioForm.valid">Calcola IBW</button>
+    </form>
+  
+    <div *ngIf="ibw">
+      <p>Il tuo Peso Ideale (IBW) è: {{ ibw }} kg</p>
+    </div>
+  
+    <canvas id="progressChart"></canvas>
+  </div>
