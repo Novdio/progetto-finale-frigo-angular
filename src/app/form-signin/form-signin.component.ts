@@ -20,19 +20,8 @@ export class FormSigninComponent {
       username:new FormControl("", [Validators.required]),
       password:new FormControl("", [Validators.required,Validators.pattern('^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$')]),
       email:new FormControl("", [Validators.required])
-      //confirmPassword: new FormControl("", [Validators.required])
     }
   )
-  // passwordMatchValidator(form: FormGroup) {
-  //   return form.get('password')!.value === form.get('confirmPassword')!.value
-  //     ? null : { mismatch: true };
-  // }
-
-  // onSubmit() {
-  //   if (this.formSignin.valid) {
-  //     console.log('Form Submitted!', this.formSignin.value);
-  //   }
-  // }
 
   signinUser()
   {
@@ -42,32 +31,6 @@ export class FormSigninComponent {
     )
   }
   
-
-  // signinUser() {
-  //   if (this.formSignin.valid) {
-  //     const { username, password } = this.formSignin.value;
-  //     this.authSev.signIn(username, password).subscribe({
-  //       next: data => {
-  //         // Registrazione avvenuta con successo, ora esegui il login automatico
-  //         this.authSev.signIn(username, password).subscribe({
-  //           next: loginData => {
-  //             localStorage.setItem("token", loginData.accessToken);
-  //             localStorage.setItem("role", loginData.role);
-  //             console.log('Login Successful!', loginData);
-  //             // Reindirizza l'utente alla pagina desiderata
-  //             this.router.navigate(['']); // Assicurati di utilizzare il percorso corretto
-  //           },
-  //           error: loginError => {
-  //             console.error('Login failed', loginError);
-  //           }
-  //         });
-  //       },
-  //       error: err => {
-  //         console.error('Registration failed', err);
-  //       }
-  //     });
-  //   }
-  // }
 }
   
 

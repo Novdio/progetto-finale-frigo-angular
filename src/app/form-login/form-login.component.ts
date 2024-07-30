@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class FormLoginComponent {
 
-  constructor( private authSev:AuthService){}
+  constructor( private authSev:AuthService, private router: Router){}
 
   formLogin:FormGroup = new FormGroup
   (
@@ -32,9 +32,15 @@ export class FormLoginComponent {
         {
           localStorage.setItem("token",data.accessToken);//memoria 
           localStorage.setItem("role",data.role);//memoria 
+
+          localStorage.setItem("username", this.formLogin.value.username); // Assuming data contains username
+          localStorage.setItem("email", data.email);
+
+          this.router.navigate(['/']);
         },
         error:err=>
         {
+          console.error('Login error:', err);
         }
       }
     )

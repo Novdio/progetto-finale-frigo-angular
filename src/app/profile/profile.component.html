@@ -1,1 +1,61 @@
-<p>profile works!</p>
+<div class="background">
+    <div class="flex grid-cols-2 sm:grid-cols-2 gap-[25rem] p-4">
+      <div class="grid grid-cols-1 col-span-1 sm:grid-cols-1 gap-10 mt-10 p-1 ml-[3rem]">
+        <div class="group relative cursor-pointer overflow-hidden w-[40rem] px-1 pt-6 pb-4 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]">
+          <div class="relative z-10 mx-auto">
+            <div class="space-y-4 pt-1 text-base leading-6 text-gray-600 transition-all duration-300 group-hover:text-gray-600 testo">
+              <div class="text-center">
+                <h4 class="font-bold text-base text-primary tracking-normal">Ricetti ggs</h4>
+                <p>Ricette giornaliere di tutti i gusti!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-1">
+        <div class="group relative cursor-default overflow-hidden w-[60rem] px-1 mt-10 mr-[30rem] pb-4 shadow-xl transition-all duration-100 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]">
+          <form [formGroup]="profileInfo" class="w-[60rem]">
+            <div class="grid flex-col gap-2 grid-cols-2 w-full border-gray-400">
+              <div>
+                <h2 class="text-xl text-gray-600 dark:text-black pb-2 ml-14 mt-8">ACCOUNT SETTINGS</h2>
+              </div>
+              <div class="flex justify-end mr-[1.5rem] mt-[0.5rem]">
+                <img src="assets/images/profilo.png" class="w-24 h-24 relative object-cover rounded-full transition-all duration-500 delay-500 transform" />
+              </div>
+              <div class="mr-3 ml-14 mb-4">
+                <label class="text-gray-600 dark:text-black">Username</label>
+                <input formControlName="username" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+              </div>
+              <div class="ml-3 mr-14 mb-4">
+                <label class="text-gray-600 dark:text-black">Email</label>
+                <input formControlName="email" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="email" />
+              </div>
+              <div class="mr-3 ml-14 mb-4">
+                <label class="text-gray-600 dark:text-black">Name</label>
+                <input formControlName="name" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+              </div>
+              <div class="ml-3 mr-14 mb-4">
+                <label class="text-gray-600 dark:text-black">Surname</label>
+                <input formControlName="surname" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+              </div>
+              <div class="mr-3 ml-14 mb-4">
+                <label class="text-gray-600 dark:text-black">Weight</label>
+                <input formControlName="weight" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+              </div>
+              <div class="ml-3 mr-14 mb-4">
+                <label class="text-gray-600 dark:text-black">Height</label>
+                <input formControlName="height" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+              </div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div class="flex justify-end mb-3 mr-3">
+                <button class="py-1.5 px-3 m-1 text-center bg-violet-700 border rounded-md text-white hover:bg-violet-500 hover:text-gray-100 dark:text-gray-200 dark:bg-violet-700" type="submit">Save changes</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
