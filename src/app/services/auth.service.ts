@@ -45,11 +45,4 @@ export class AuthService {
     return this.http.post("/api/auth/register",body,{ responseType: 'text' })
   }
 
-  // signlogin(username:string,password:string)
-  // {
-  //   this.signIn(username,password);
-  //   this.login(username,password);
-
-  //   return alert("U dit it!")
-  // }
 }

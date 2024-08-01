@@ -1,6 +1,7 @@
 <nav class="bg-[#8CC084] p-5 fixed top-0 w-full z-[3.125rem]">
   <div class="container mx-auto flex items-center justify-between">
     <img src="assets/images/pingu.png" class="image inline" alt="Logo">
+
     <div class="flex-1 flex justify-between items-center ml-12 lg:ml-12">
       <div>
         <button class="home-button font-bold text-white hover:text-gray-400 mx-2" routerLink="/">HOME</button>
@@ -21,7 +22,7 @@
       }
       @else 
       {
-    <div >
+    <div class="z-50">
       <div class="group cursor-pointer">
 
         <div class="my-9">
@@ -34,14 +35,14 @@
         </div>
         
         <div
-            class="franco invisible absolute  flex w-auto flex-col bg-gray-100 py-1 px-7 text-gray-800 shadow-xl group-hover:visible">
-            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" href="/profile">
+            class="franco invisible absolute flex w-auto flex-col bg-gray-100 py-1 px-7 text-gray-800 shadow-xl group-hover:visible">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500  hover:text-black md:mx-2" href="/profile">
               Profile
             </a>
-            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
               Agenda
             </a>
-            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
               Logout
             </a>
         </div>

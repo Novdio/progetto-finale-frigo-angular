@@ -27,7 +27,16 @@ export class FormSigninComponent {
   {
     this.authSev.signIn(this.formSignin.value.username,this.formSignin.value.password,this.formSignin.value.email).subscribe
     (
-      resp=>this.router.navigate(["registrationSuccessfull"])
+      {
+        next:data=>
+        {
+          
+          localStorage.setItem("username", this.formSignin.value.username);
+          localStorage.setItem("email", this.formSignin.value.email);
+
+          this.router.navigate(["/registrationSuccessfull"])
+        }
+      }
     )
   }
   

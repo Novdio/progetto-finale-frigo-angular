@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -6,13 +6,21 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule,RouterLink,ReactiveFormsModule],
+  imports: [CommonModule,RouterLink,ReactiveFormsModule, NgClass],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {
   constructor( private router: Router){}
 
+  accordionOpened: { [key: string]: boolean } = { rec1: false, rec2: false };
+
+  toggleAccordion(recipe: string) {
+    // Controllo per evitare errori di runtime
+    if (this.accordionOpened.hasOwnProperty(recipe)) {
+      this.accordionOpened[recipe] = !this.accordionOpened[recipe];
+    }
+  }
   profileInfo:FormGroup = new FormGroup
   (
     {
