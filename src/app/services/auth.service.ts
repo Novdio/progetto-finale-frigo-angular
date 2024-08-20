@@ -1,13 +1,14 @@
 import { P } from '@angular/cdk/keycodes';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   login(username:string,password:string)
   {
@@ -20,6 +21,8 @@ export class AuthService {
   {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+
+    this.router.navigate(["/"])
   }
 
   isLogged():boolean

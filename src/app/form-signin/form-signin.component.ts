@@ -33,8 +33,13 @@ export class FormSigninComponent {
           
           localStorage.setItem("username", this.formSignin.value.username);
           localStorage.setItem("email", this.formSignin.value.email);
+          // localStorage.setItem("id", data.id);
 
           this.router.navigate(["/registrationSuccessfull"])
+        },
+        error:err=>
+        {
+          console.error('SignIn error:', err);
         }
       }
     )

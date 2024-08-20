@@ -40,7 +40,7 @@
         <!--INIZIO COLONNA-->
         <div class="grid grid-cols-1 sm:grid-cols-1">
           <div class="group cursor-default overflow-hidden w-[60rem] px-1 mt-10 mr-[30rem] pb-4 shadow-xl transition-all duration-100 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]">          
-            <form [formGroup]="profileInfo" class="w-[60rem]">
+            <form [formGroup]="profileInfo" class="w-[60rem]" (ngSubmit)="moreInfo()">
               <div class="grid flex-col gap-2 grid-cols-2 w-full border-gray-400">
                 <div style="display: flex; align-items: center;">
                   <img src="assets/images/profilo.png" class="w-24 h-24 ml-[3.3rem] mt-[1rem] object-cover rounded-full transition-all duration-500 delay-500 transform" />
@@ -71,11 +71,26 @@
                     <label class="text-gray-600 dark:text-black">Height</label>
                     <input formControlName="height" placeholder="es. 180cm" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
                   </div>
+                  <div class="mr-3 ml-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">age</label>
+                    <input formControlName="age" placeholder="almeno 1" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="ml-3 mr-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Sesso</label>
+                    <div class="select-container">
+                      <select id="sex" formControlName="sex" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black">
+                        <option value="M">Maschio</option>
+                        <option value="F">Femmina</option>
+                      </select>
+                    </div>
+                  </div>
                   <div></div>
                   <div></div>
                   <div></div>
                   <div class="flex justify-end mb-3 mr-3">
-                    <button class="py-1.5 px-3 m-1 text-center bg-violet-700 border rounded-md text-white hover:bg-violet-500 hover:text-gray-100 dark:text-gray-200 dark:bg-violet-700" type="submit">Save changes</button>
+                    <button class="py-1.5 px-3 m-1 text-center bg-violet-700 border rounded-md text-white hover:bg-violet-500 hover:text-gray-100 dark:text-gray-200 dark:bg-violet-700" type="submit">
+                      Save changes
+                    </button>
                   </div>
                 </div>
               </form>

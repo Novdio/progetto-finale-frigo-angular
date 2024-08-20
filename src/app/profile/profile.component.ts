@@ -2,6 +2,8 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ProfileService } from '../services/profile.service';
+import { min } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {
-  constructor( private router: Router){}
+  constructor( private router: Router, private profServ:ProfileService){}
 
   accordionOpened: { [key: string]: boolean } = { rec1: false, rec2: false };
 
@@ -30,23 +32,69 @@ export class ProfileComponent implements OnInit {
       surname:new FormControl("", [Validators.required]),
       weight:new FormControl("", [Validators.required]),
       height:new FormControl("", [Validators.required]),
+      age:new FormControl("", [Validators.required]),
+      sex:new FormControl("", [Validators.required]),
     }
   )
   ngOnInit(): void {
-    this.populateForm();
+    this.profileInfo.patchValue({
+      username: localStorage.getItem('username') || '',
+      email: localStorage.getItem('email') || '',
+      name: localStorage.getItem('name') || '',
+      surname: localStorage.getItem('surname') || '',
+      weight: localStorage.getItem('weight') || '',
+      height: localStorage.getItem('height') || '',
+      age: localStorage.getItem('age') || '',
+      sex: localStorage.getItem('sex') || ''
+    });
   }
 
-  populateForm(): void {
-    const username = localStorage.getItem('username');
-    const email = localStorage.getItem('email');
-
-    if (username && email) {
-      this.profileInfo.patchValue({
-        username: username,
-        email: email
-      });
+  moreInfo() {
+    const id = Number(localStorage.getItem('id'));
+    if (isNaN(id)) {
+      console.error('Invalid ID in localStorage');
+      return;
     }
+
+    this.profServ.getUserInfo(id).subscribe(
+      existingInfo => {
+        // se profilo con info esiste fa chiamata PUT 
+        this.profServ.updateUserInfo(id, this.profileInfo.value).subscribe(
+          {
+            next: data => {
+              this.saveToLocalStorage();
+            },
+            error: err => {
+              console.error('Error updating info:', err);
+            }
+          }
+        );
+      },
+      error => {
+        // se profilo non esiste fa chiamata POST
+        this.profServ.createUserInfo(id, this.profileInfo.value).subscribe(
+          {
+            next: data => {
+              this.saveToLocalStorage();
+            },
+            error: err => {
+              console.error('Error creating info:', err);
+            }
+          }
+        );
+      }
+    ); 
   }
 
-
+  private saveToLocalStorage() {
+    localStorage.setItem("username", this.profileInfo.value.username);
+    localStorage.setItem("email", this.profileInfo.value.email);
+    localStorage.setItem("name", this.profileInfo.value.name);
+    localStorage.setItem("surname", this.profileInfo.value.surname);
+    localStorage.setItem("weight", this.profileInfo.value.weight);
+    localStorage.setItem("height", this.profileInfo.value.height);
+    localStorage.setItem("age", this.profileInfo.value.age);
+    localStorage.setItem("sex", this.profileInfo.value.sex);
+  }
 }
+

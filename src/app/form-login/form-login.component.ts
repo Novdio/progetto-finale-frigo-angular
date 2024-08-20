@@ -35,6 +35,7 @@ export class FormLoginComponent {
 
           localStorage.setItem("username", this.formLogin.value.username); // Assuming data contains username
           localStorage.setItem("email", data.email);
+          localStorage.setItem("id", data.id);
 
           this.router.navigate(['/']);
         },
