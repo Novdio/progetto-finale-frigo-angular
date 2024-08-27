@@ -4,6 +4,7 @@ import { FormLoginComponent } from './form-login/form-login.component';
 import { FormSigninComponent } from './form-signin/form-signin.component';
 import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
 import { RegistrationSuccesfullComponent } from './registration-succesfull/registration-succesfull.component';
+import { MonitoraggioComponent } from './monitoraggio-salute/monitoraggio-salute.component';
 
 export const routes: Routes = 
 [
@@ -11,6 +12,6 @@ export const routes: Routes =
     {path:"login",component:FormLoginComponent},
     {path:"signin",component:FormSigninComponent},
     {path:"confirmation/:token",component:ConfirmationPageComponent},
-    {path:"registrationSuccessfull",component:RegistrationSuccesfullComponent}
-
+    {path:"registrationSuccessfull",component:RegistrationSuccesfullComponent},
+    {path:"monitoraggioSalute",component:MonitoraggioComponent}
 ];

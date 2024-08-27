@@ -1,30 +1,159 @@
-<div class="container">
-    <form [formGroup]="monitoraggioForm" (ngSubmit)="onSubmit()">
+<!-- <div class="flex">
+  <div class="mb-12">&nbsp;</div>
+  <div class="container">
+    <form [formGroup]="monitoraggioFormIbw" (ngSubmit)="onSubmitIbw()">
       <div>
-        <label for="peso">Peso (kg):</label>
-        <input id="peso" formControlName="peso" type="number">
+        <h1>CALCOLO IBW</h1> <br>
       </div>
       <div>
         <label for="altezza">Altezza (cm):</label>
-        <input id="altezza" formControlName="altezza" type="number">
-      </div>
-      <div>
-        <label for="età">Età:</label>
-        <input id="età" formControlName="età" type="number">
+        <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
       </div>
       <div>
         <label for="sesso">Sesso:</label>
-        <select id="sesso" formControlName="sesso">
+        <select class="rounded-lg ml-3" id="sesso" formControlName="sesso">
           <option value="M">Maschio</option>
           <option value="F">Femmina</option>
         </select>
       </div>
-      <button type="submit" [disabled]="!monitoraggioForm.valid">Calcola IBW</button>
+      <button type="submit" [disabled]="!monitoraggioFormIbw.valid">Calcola IBW</button>
+      <div *ngIf="ibw !== null">
+        <p>Il tuo Peso Ideale (IBW) è: {{ ibw }} kg</p>
+      </div>
     </form>
-  
-    <div *ngIf="ibw">
-      <p>Il tuo Peso Ideale (IBW) è: {{ ibw }} kg</p>
-    </div>
-  
-    <canvas id="progressChart"></canvas>
   </div>
+  <div class="mt-12">&nbsp;</div>
+  <div class="container2">
+    <form [formGroup]="monitoraggioFormBfp" (ngSubmit)="onSubmitBfp()">
+      <div>
+        <h1>CALCOLO PERCENTUALE DI GRASSO CORPOREO</h1>
+      </div>
+      <br>
+      <div>
+        <label for="altezza">Altezza (cm):</label>
+        <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
+      </div>
+      <div>
+        <label for="girovita">Girovita (cm):</label>
+        <input class="rounded-lg ml-3" id="girovita" formControlName="girovita" type="number">
+      </div>
+      <div>
+        <label for="collo">Collo (cm):</label>
+        <input class="rounded-lg ml-3" id="collo" formControlName="collo" type="number">
+      </div>
+      <div>
+        <label for="fianchi">Fianchi (cm):</label>
+        <input class="rounded-lg ml-3" id="fianchi" formControlName="fianchi" type="number">
+      </div>
+      <div>
+        <label for="sesso">Sesso:</label>
+          <select class="rounded-lg ml-3" id="sesso" formControlName="sesso">
+            <option value="M">Maschio</option>
+            <option value="F">Femmina</option>
+          </select>
+      </div>
+      <button type="submit" [disabled]="!monitoraggioFormBfp.valid">Calcola IBW</button>
+      <div *ngIf="bfp !== null">
+        <p>Il tuo Body Fat Percentage (BFP) è: {{ bfp }} %</p>
+      </div>
+    </form>
+  </div>
+  <div class="mt-12">&nbsp;</div> 
+</div> -->
+
+<form [formGroup]="monitoraggioForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="altezza">Altezza (cm):</label>
+    <input id="altezza" formControlName="altezza" type="number">
+  </div>
+  
+  <div>
+    <label for="peso">Peso (kg):</label>
+    <input id="peso" formControlName="peso" type="number">
+  </div>
+  
+  <div>
+    <label for="età">Età:</label>
+    <input id="età" formControlName="età" type="number">
+  </div>
+  
+  <div>
+    <label for="sesso">Sesso:</label>
+    <select id="sesso" formControlName="sesso">
+      <option value="M">Maschio</option>
+      <option value="F">Femmina</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="livelloAttività">Livello di Attività:</label>
+    <select id="livelloAttività" formControlName="livelloAttività">
+      <option value="sedentario">Sedentario</option>
+      <option value="leggero">Leggero</option>
+      <option value="moderato">Moderato</option>
+      <option value="intenso">Intenso</option>
+      <option value="moltoIntenso">Molto Intenso</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="girovita">Girovita (cm):</label>
+    <input id="girovita" formControlName="girovita" type="number">
+  </div>
+
+  <div>
+    <label for="collo">Collo (cm):</label>
+    <input id="collo" formControlName="collo" type="number">
+  </div>
+
+  <div *ngIf="monitoraggioForm.get('sesso')?.value === 'F'">
+    <label for="fianchi">Fianchi (cm):</label>
+    <input id="fianchi" formControlName="fianchi" type="number">
+  </div>
+
+  <button type="submit">Calcola</button>
+</form>
+
+<div *ngIf="ibw">
+  <h3>IBW (Peso ideale): {{ ibw }} kg</h3>
+</div>
+
+<div *ngIf="bfp">
+  <h3>BFP (Percentuale di Massa Grassa): {{ bfp }}%</h3>
+</div>
+
+<div *ngIf="imc">
+  <h3>IMC (Indice di Massa Corporea): {{ imc }}</h3>
+</div>
+
+<div *ngIf="bmr">
+  <h3>BMR (Metabolismo Basale): {{ bmr }} kcal/giorno</h3>
+</div>
+
+<div *ngIf="tdee">
+  <h3>TDEE (Fabbisogno Calorico Giornaliero): {{ tdee }} kcal/giorno</h3>
+</div>
+
+<div *ngIf="whr">
+  <h3>WHR (Rapporto Vita/Fianchi): {{ whr }}</h3>
+</div>
+
+<div *ngIf="whtr">
+  <h3>WHtR (Rapporto Vita/Altezza): {{ whtr }}</h3>
+</div>
+
+<div *ngIf="lbm">
+  <h3>LBM (Massa Corporea Magra): {{ lbm }} kg</h3>
+</div>
+
+<div *ngIf="ffmi">
+  <h3>FFMI (Indice di Massa Corporea Magra): {{ ffmi }}</h3>
+</div>
+
+<div *ngIf="proteinIntake">
+  <h3>Rapporto Proteico (Protein Intake Ratio): {{ proteinIntake }} g</h3>
+</div>
+
+<div *ngIf="hydrationStatus">
+  <h3>Percentuale di Idratazione: {{ hydrationStatus }}%</h3>
+</div>
