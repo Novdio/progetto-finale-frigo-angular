@@ -38,7 +38,7 @@
         </div>
         <!--FINE COLONNA-->
         <!--INIZIO COLONNA-->
-        <div class="grid grid-cols-1 sm:grid-cols-1">
+        <div class="grid grid-cols-1 sm:grid-cols-1 ">
           <div class="group cursor-default overflow-hidden w-[60rem] px-1 mt-10 mr-[30rem] pb-4 shadow-xl transition-all duration-100 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]">          
             <form [formGroup]="profileInfo" class="w-[60rem]" (ngSubmit)="moreInfo()">
               <div class="grid flex-col gap-2 grid-cols-2 w-full border-gray-400">
@@ -88,41 +88,29 @@
                   <div></div>
                   <div></div>
                   <div class="flex justify-end mb-3 mr-3">
-                    <button class="py-1.5 px-3 m-1 text-center bg-violet-700 border rounded-md text-white hover:bg-violet-500 hover:text-gray-100 dark:text-gray-200 dark:bg-violet-700" type="submit">
+                    <button class="py-1.5 px-3 m-1 font-medium text-center bg-[#F4A261] border rounded-md text-black dark:text-black dark:bg-[#FFB870]" type="submit">
                       Save changes
                     </button>
                   </div>
                 </div>
               </form>
             </div>
+        
             <!-- pulsanti -->
-            <div class="flex justify-between mt-8">
+            <div class="flex gap-4 mt-8 mx-5"> 
               <!-- Pulsante a sinistra -->
-              <a routerLink="/" class="group relative cursor-pointer overflow-hidden w-[27rem] right-[2rem] px-10 pt-6 pb-7 shadow-xl ring-1 ring-gray-900/5 border border-gray-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#FFB870]">
-                <div class="relative z-10 mx-auto">
-                  <div class="space-y-4 pt-1 text-base leading-6 text-gray-600 transition-all duration-300 group-hover:text-white">
-                    <div class="text-center">
-                      <h4 class="font-bold text-base text-primary tracking-normal">Agenda</h4>
-                      <p></p>
-                    </div>
-                  </div>
+              <a routerLink="/agenda" class="group relative cursor-pointer overflow-hidden w-full max-w-[27rem] px-10 pt-6 pb-7 shadow-xl ml-[0.3rem] ring-1 ring-gray-900/5 border border-gray-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#FFB870]">
+                <div class="relative z-10 mx-auto text-center">
+                  <h4 class="font-bold text-base text-primary tracking-normal">Agenda</h4>
                 </div>
               </a>
-              <!-- fine Pulsante a sinistra -->
               <!-- Pulsante a destra -->
-              <a routerLink="/" class="group relative cursor-pointer overflow-hidden w-[27rem] left-[0.2rem] px-10 pt-6 pb-7 shadow-xl ring-1 ring-gray-900/5 border border-gray-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#FFB870]">
-                <div class="relative z-10 mx-auto">
-                  <div class="space-y-4 pt-1 text-base leading-6 text-gray-600 transition-all duration-300 group-hover:text-white">
-                    <div class="text-center">
-                      <h4 class="font-bold text-base text-primary tracking-normal">Monitoraggio</h4>
-                      <p></p>
-                    </div>
-                  </div>
+              <a routerLink="/" class="group relative cursor-pointer overflow-hidden w-full max-w-[27rem] px-10 pt-6 pb-7 shadow-xl ring-1 ring-gray-900/5 border border-gray-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#FFB870]">
+                <div class="relative z-10 mx-auto text-center">
+                  <h4 class="font-bold text-base text-primary tracking-normal">Monitoraggio</h4>
                 </div>
               </a>
-              <!-- fine Pulsante a destra -->
             </div>
-            <!-- fine pulsanti -->
           </div>
             <!--FINE COLONNA-->
     </div>
