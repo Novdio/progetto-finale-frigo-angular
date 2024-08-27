@@ -6,9 +6,10 @@ import { ConfirmationPageComponent } from './confirmation-page/confirmation-page
 import { RegistrationSuccesfullComponent } from './registration-succesfull/registration-succesfull.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoggedGuardService } from './services/guard/logged-guard.service';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [LoggedGuardService] },
   { path: 'login', component: FormLoginComponent },
   { path: 'signin', component: FormSigninComponent },
   { path: 'confirmation/:token', component: ConfirmationPageComponent },
@@ -16,6 +17,14 @@ export const routes: Routes = [
     path: 'registrationSuccessfull',
     component: RegistrationSuccesfullComponent,
   },
-  { path: 'agenda', component: AgendaComponent },
-  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'agenda',
+    component: AgendaComponent,
+    canActivate: [LoggedGuardService],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [LoggedGuardService],
+  },
 ];
