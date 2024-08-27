@@ -1,0 +1,14 @@
+.background
+{
+    background-color: #FFFAF0;
+}
+
+.account-settings-container {
+    display: flex;
+    align-items: center;
+}
+
+.account-settings-text {
+    margin-bottom: -5px; /* Adjust this value as needed */
+}
+
