@@ -1,0 +1,75 @@
+<nav class="bg-[#8CC084] p-5 fixed top-0 w-full z-[3.125rem]">
+  <div class="container mx-auto flex items-center justify-between">
+    <img src="assets/images/pingu.png" class="image inline" alt="Logo">
+
+    <div class="flex-1 flex justify-between items-center ml-12 lg:ml-12">
+      <div>
+        <button class="home-button font-bold text-white hover:text-gray-400 mx-2" routerLink="/">HOME</button>
+      </div>
+      <button [ngClass]="{'hidden': !auth.userHasRole('ADMIN')}" class="text-white hover:text-gray-400 mx-2" [disabled]="!auth.userHasRole('ADMIN')" routerLink="/admin">ADMIN</button>
+      @if (!auth.isLogged()) 
+      {
+        <div class="flex flex-wrap justify-center gap-6">
+          <!-- <a class="relative" routerLink="/login">
+            <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+            <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Login</span>
+          </a>
+          <a class="relative" href="/signin">
+            <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+            <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Sign in</span>
+          </a> -->
+
+          <div class="flex gap-3 max-w-sm">
+            <button class="py-2.5 px-6 rounded-lg text-sm font-medium text-gray-900 bg-[#a2eb8d] transition duration-300 hover:bg-[#f5e3b0] " routerLink="/login">Login</button>
+            <button class="py-2.5 px-6 rounded-lg text-sm font-medium text-gray-900 bg-[#a2eb8d] transition duration-300 hover:bg-[#f5e3b0] " routerLink="/signin">Sign in</button>
+          </div>
+
+        </div>
+      }
+      @else 
+      {
+    <div class="z-50">
+      <div class="group cursor-pointer">
+
+        <div class="my-9">
+          <a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="profile">
+                <path
+                    d="M24 23.95q-3.3 0-5.4-2.1-2.1-2.1-2.1-5.4 0-3.3 2.1-5.4 2.1-2.1 5.4-2.1 3.3 0 5.4 2.1 2.1 2.1 2.1 5.4 0 3.3-2.1 5.4-2.1 2.1-5.4 2.1ZM8 40v-4.7q0-1.9.95-3.25T11.4 30q3.35-1.5 6.425-2.25Q20.9 27 24 27q3.1 0 6.15.775 3.05.775 6.4 2.225 1.55.7 2.5 2.05.95 1.35.95 3.25V40Zm3-3h26v-1.7q0-.8-.475-1.525-.475-.725-1.175-1.075-3.2-1.55-5.85-2.125Q26.85 30 24 30t-5.55.575q-2.7.575-5.85 2.125-.7.35-1.15 1.075Q11 34.5 11 35.3Zm13-16.05q1.95 0 3.225-1.275Q28.5 18.4 28.5 16.45q0-1.95-1.275-3.225Q25.95 11.95 24 11.95q-1.95 0-3.225 1.275Q19.5 14.5 19.5 16.45q0 1.95 1.275 3.225Q22.05 20.95 24 20.95Zm0-4.5ZM24 37Z" />
+            </svg>
+         </a>
+        </div>
+        
+        <div
+            class="franco invisible absolute flex w-auto flex-col bg-gray-100 py-1 px-7 text-gray-800 shadow-xl group-hover:visible">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500  hover:text-black md:mx-2" href="/profile">
+              Profile
+            </a>
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" href="/agenda">
+              Agenda
+            </a>
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
+              Logout
+            </a>
+        </div>
+    </div>
+</div>
+}
+
+<div *ngIf="auth.isLogged()" >
+
+</div>
+ 
+ 
+ 
+ 
+ 
+        <!-- <div class="flex flex-wrap justify-center gap-6 logout" >
+          <a class="relative" (click)="auth.logout()">
+            <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
+            <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Logout</span>
+          </a>
+        </div> -->
+    </div>
+  </div>
+</nav>

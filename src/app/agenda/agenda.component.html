@@ -1,0 +1,75 @@
+<div class="border border-gray-300 w-[80rem] shadow-sm rounded-lg overflow-hidden mx-auto mt-[7.5rem]">
+  <table class="w-full text-sm leading-5">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Lunedì</th>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Martedì</th>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Mercoledì</th>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Giovedì</th>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Venerdì</th>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Sabato</th>
+        <th class="py-6 px-7 text-left font-medium text-gray-600">Domenica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- <td class="py-8 px-10 text-left">
+          <div>
+            <label class="inline-flex items-center" for="colazione1CheckBox">
+              <input id="colazione1CheckBox" type="checkbox" class="w-4 h-4 accent-green-600" checked>
+              <span class="ml-2">Colazione</span>
+            </label>
+           </div>
+        </td> --> 
+          <td *ngFor="let n of [].constructor(7); let i = index">
+             <app-colazione [day]='i'></app-colazione>
+          </td>
+      </tr>
+      <tr>
+        <td *ngFor="let n of [].constructor(7); let i = index">
+          <app-spuntino [day]='i'></app-spuntino>
+       </td>
+      </tr>
+      <tr>
+        <td *ngFor="let n of [].constructor(7); let i = index">
+          <app-pranzo [day]='i'></app-pranzo>
+       </td>
+      </tr>
+      <tr>
+        <td *ngFor="let n of [].constructor(7); let i = index">
+          <app-merenda [day]='i'></app-merenda>
+       </td>
+      </tr>
+      <tr>
+        <td *ngFor="let n of [].constructor(7); let i = index">
+          <app-cena [day]='i'></app-cena>
+       </td> 
+      </tr>
+      <tr>
+        <td *ngFor="let n of [].constructor(7); let i = index">
+          <app-faccine [day]='i'></app-faccine>
+       </td> 
+      </tr>
+      <tr>
+         <!-- Colonna unica per l'inserimento del peso -->
+        <td class="py-8 px-10 text-center" colspan="3">
+          <div class="inline-flex items-center justify-center mx-auto">
+            <input type="number" placeholder="Inserisci il tuo peso" class="border border-gray-300 rounded-md w-48 px-4 py-2">
+            <span class="ml-2 text-gray-600">kg</span>
+          </div>
+        </td>
+        <!-- Due post-it centrati -->
+        <td class="py-8 px-10 text-center" colspan="4">
+          <div class="flex justify-center items-center space-x-4">
+            <textarea placeholder="Nota 1"
+                      class="border border-yellow-300 rounded-md w-60 h-40 px-4 py-2 shadow-lg"
+                      style="background-color: #fffbc4; resize: none; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);"></textarea>
+            <textarea placeholder="Nota 2"
+                      class="border border-yellow-300 rounded-md w-60 h-40 px-4 py-2 shadow-lg"
+                      style="background-color: #fffbc4; resize: none; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);"></textarea>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
