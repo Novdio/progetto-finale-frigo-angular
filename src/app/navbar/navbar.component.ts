@@ -8,7 +8,7 @@ import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, CommonModule, LoginComponent,MatIcon],
+  imports: [RouterLink, CommonModule, LoginComponent, MatIcon],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

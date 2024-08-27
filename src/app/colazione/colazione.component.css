@@ -1,0 +1,47 @@
+.hidden {
+  display: none;
+}
+
+.edit-button {
+  color: white;
+  background-color: #dc2626; /* bg-red-600 */
+  padding: 0.625rem 0.75rem; /* px-3 py-2.5 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem; /* text-base */
+  font-weight: 500; /* font-medium */
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  margin-right: 0.5rem; /* mr-2 */
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.edit-button:hover {
+  background-color: #b91c1c; /* hover:bg-red-800 */
+}
+
+.save-button {
+  color: #111827; /* text-gray-900 */
+  background-color: #ffffff; /* bg-white */
+  padding: 0.625rem 0.75rem; /* px-3 py-2.5 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem; /* text-base */
+  font-weight: 500; /* font-medium */
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.save-button:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+  line-height: 1;
+}
