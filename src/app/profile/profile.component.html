@@ -1,1 +1,129 @@
-<p>profile works!</p>
+<div class="background z-[-1]">
+    <div class="flex grid-cols-2 sm:grid-cols-2 gap-[25rem] p-4">
+        <!--INIZIO COLONNA-->
+        <div class="grid grid-cols-1 col-span-1 sm:grid-cols-1 gap-10 mt-10 p-1 ml-[3rem]">
+          <div class="group relative cursor-pointer overflow-hidden w-[40rem] px-1 pt-6 pb-4 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]">
+            <div class="relative z-10 mx-auto">
+              <div class="space-y-4 pt-1 text-base leading-6 text-gray-600 transition-all duration-300 group-hover:text-gray-600">
+                <!-- Titolo -->
+                <div class="text-center">
+                  <h4 class="font-bold text-base text-primary tracking-normal">Ricetti ggs</h4>
+                  <p>Ricette giornaliere di tutti i gusti!</p>
+                </div>
+                <!-- Lista delle ricette -->
+                <ul class="list-disc pl-6 text-lg space-y-4">
+                  <li>
+                    <button (click)="toggleAccordion('rec1')" class="w-full text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                      Ricetta 1
+                      <span id="icon-rec1" class="float-right">&#9660;</span> <!-- Icona per il menu a serranda -->
+                    </button>
+                    <div id="content-rec1" [ngClass]="{'max-h-0': !accordionOpened['rec1']}" class="overflow-hidden transition-all duration-300 ease-in-out">
+                      <p class="text-sm text-gray-700 mt-2">Mini descrizione della ricetta 1, che offre una panoramica veloce.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <button (click)="toggleAccordion('rec2')" class="w-full text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                      Ricetta 2
+                      <span id="icon-rec2" class="float-right">&#9660;</span> <!-- Icona per il menu a serranda -->
+                    </button>
+                    <div id="content-rec2" [ngClass]="{'max-h-0': !accordionOpened['rec2']}" class="overflow-hidden transition-all duration-300 ease-in-out">
+                      <p class="text-sm text-gray-700 mt-2">Mini descrizione della ricetta 2, con dettagli succinti.</p>
+                    </div>
+                  </li>
+                  <!-- Aggiungi altre ricette qui -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--FINE COLONNA-->
+        <!--INIZIO COLONNA-->
+        <div class="grid grid-cols-1 sm:grid-cols-1">
+          <div class="group cursor-default overflow-hidden w-[60rem] px-1 mt-10 mr-[30rem] pb-4 shadow-xl transition-all duration-100 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]">          
+            <form [formGroup]="profileInfo" class="w-[60rem]" (ngSubmit)="moreInfo()">
+              <div class="grid flex-col gap-2 grid-cols-2 w-full border-gray-400">
+                <div style="display: flex; align-items: center;">
+                  <img src="assets/images/profilo.png" class="w-24 h-24 ml-[3.3rem] mt-[1rem] object-cover rounded-full transition-all duration-500 delay-500 transform" />
+                  <span class="text-xl text-gray-600 dark:text-black ml-[1rem]" style="margin-bottom: -5px;">ACCOUNT SETTINGS</span>
+                </div>
+                  <div></div>
+                  <div class="mr-3 ml-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Username</label>
+                    <input formControlName="username" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="ml-3 mr-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Email</label>
+                    <input formControlName="email" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="email" />
+                  </div>
+                  <div class="mr-3 ml-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Name</label>
+                    <input formControlName="name" placeholder="es. Bobby" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="ml-3 mr-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Surname</label>
+                    <input formControlName="surname" placeholder="es. Ball" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="mr-3 ml-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Weight</label>
+                    <input formControlName="weight" placeholder="es. 70kg" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="ml-3 mr-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Height</label>
+                    <input formControlName="height" placeholder="es. 180cm" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="mr-3 ml-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">age</label>
+                    <input formControlName="age" placeholder="almeno 1" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black" type="text" />
+                  </div>
+                  <div class="ml-3 mr-14 mb-4">
+                    <label class="text-gray-600 dark:text-black">Sesso</label>
+                    <div class="select-container">
+                      <select id="sex" formControlName="sex" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black">
+                        <option value="M">Maschio</option>
+                        <option value="F">Femmina</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div class="flex justify-end mb-3 mr-3">
+                    <button class="py-1.5 px-3 m-1 text-center bg-violet-700 border rounded-md text-white hover:bg-violet-500 hover:text-gray-100 dark:text-gray-200 dark:bg-violet-700" type="submit">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- pulsanti -->
+            <div class="flex justify-between mt-8">
+              <!-- Pulsante a sinistra -->
+              <a routerLink="/" class="group relative cursor-pointer overflow-hidden w-[27rem] right-[2rem] px-10 pt-6 pb-7 shadow-xl ring-1 ring-gray-900/5 border border-gray-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#FFB870]">
+                <div class="relative z-10 mx-auto">
+                  <div class="space-y-4 pt-1 text-base leading-6 text-gray-600 transition-all duration-300 group-hover:text-white">
+                    <div class="text-center">
+                      <h4 class="font-bold text-base text-primary tracking-normal">Agenda</h4>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <!-- fine Pulsante a sinistra -->
+              <!-- Pulsante a destra -->
+              <a routerLink="/" class="group relative cursor-pointer overflow-hidden w-[27rem] left-[0.2rem] px-10 pt-6 pb-7 shadow-xl ring-1 ring-gray-900/5 border border-gray-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#FFB870]">
+                <div class="relative z-10 mx-auto">
+                  <div class="space-y-4 pt-1 text-base leading-6 text-gray-600 transition-all duration-300 group-hover:text-white">
+                    <div class="text-center">
+                      <h4 class="font-bold text-base text-primary tracking-normal">Monitoraggio</h4>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <!-- fine Pulsante a destra -->
+            </div>
+            <!-- fine pulsanti -->
+          </div>
+            <!--FINE COLONNA-->
+    </div>
+  </div>

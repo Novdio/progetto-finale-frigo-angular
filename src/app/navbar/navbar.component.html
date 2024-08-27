@@ -1,6 +1,7 @@
-<nav class="bg-[#8CC084] p-5 fixed top-0 w-full ">
+<nav class="bg-[#8CC084] p-5 fixed top-0 w-full z-[3.125rem]">
   <div class="container mx-auto flex items-center justify-between">
     <img src="assets/images/pingu.png" class="image inline" alt="Logo">
+
     <div class="flex-1 flex justify-between items-center ml-12 lg:ml-12">
       <div>
         <button class="home-button font-bold text-white hover:text-gray-400 mx-2" routerLink="/">HOME</button>
@@ -9,19 +10,25 @@
       @if (!auth.isLogged()) 
       {
         <div class="flex flex-wrap justify-center gap-6">
-          <a class="relative" routerLink="/login">
+          <!-- <a class="relative" routerLink="/login">
             <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
             <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Login</span>
           </a>
           <a class="relative" href="/signin">
             <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-black"></span>
             <span class="fold-bold relative inline-block h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:bg-[#ECDCB0] hover:text-gray-900">Sign in</span>
-          </a>
+          </a> -->
+
+          <div class="flex gap-3 max-w-sm">
+            <button class="py-2.5 px-6 rounded-lg text-sm font-medium text-gray-900 bg-[#a2eb8d] transition duration-300 hover:bg-[#f5e3b0] " routerLink="/login">Login</button>
+            <button class="py-2.5 px-6 rounded-lg text-sm font-medium text-gray-900 bg-[#a2eb8d] transition duration-300 hover:bg-[#f5e3b0] " routerLink="/signin">Sign in</button>
+          </div>
+
         </div>
       }
       @else 
       {
-    <div >
+    <div class="z-50">
       <div class="group cursor-pointer">
 
         <div class="my-9">
@@ -34,14 +41,14 @@
         </div>
         
         <div
-            class="franco invisible absolute  flex w-auto flex-col bg-gray-100 py-1 px-7 text-gray-800 shadow-xl group-hover:visible">
-            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
+            class="franco invisible absolute flex w-auto flex-col bg-gray-100 py-1 px-7 text-gray-800 shadow-xl group-hover:visible">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500  hover:text-black md:mx-2" href="/profile">
               Profile
             </a>
-            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" href="/agenda">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" href="/agenda">
               Agenda
             </a>
-            <a class="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
+            <a class="my-2 block border-b border-gray-100 z-50 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" (click)="auth.logout()">
               Logout
             </a>
         </div>
