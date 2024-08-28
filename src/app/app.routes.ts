@@ -29,6 +29,6 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [LoggedGuardService],
+    //canActivate: [LoggedGuardService],
   },
 ];
