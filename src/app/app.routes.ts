@@ -9,7 +9,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoggedGuardService } from './services/guard/logged-guard.service';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [LoggedGuardService] },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [LoggedGuardService],
+  },
   { path: 'login', component: FormLoginComponent },
   { path: 'signin', component: FormSigninComponent },
   { path: 'confirmation/:token', component: ConfirmationPageComponent },
