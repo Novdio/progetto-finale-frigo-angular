@@ -12,6 +12,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './form-signin.component.css'
 })
 export class FormSigninComponent {
+  disabled: boolean = false;
   constructor( private authSev:AuthService, private router: Router){}
 
   formSignin:FormGroup = new FormGroup
@@ -25,6 +26,7 @@ export class FormSigninComponent {
 
   signinUser()
   {
+    this.disabled = true;
     this.authSev.signIn(this.formSignin.value.username,this.formSignin.value.password,this.formSignin.value.email).subscribe
     (
       {
@@ -34,12 +36,13 @@ export class FormSigninComponent {
           localStorage.setItem("username", this.formSignin.value.username);
           localStorage.setItem("email", this.formSignin.value.email);
           // localStorage.setItem("id", data.id);
-
+          this.disabled = false;
           this.router.navigate(["/registrationSuccessfull"])
         },
         error:err=>
         {
           console.error('SignIn error:', err);
+          this.disabled = false;
         }
       }
     )
