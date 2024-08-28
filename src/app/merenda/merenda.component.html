@@ -1,0 +1,110 @@
+<div class="flex items-center py-8 px-8">
+  <label class="inline-flex items-center mr-2" for="merenda1CheckBox">
+    <input id="merenda1CheckBox" type="checkbox" class="w-4 h-4  accent-green-600">
+  </label>
+  
+  <!-- bottone modal  -->
+  <button class="font-medium text-gray-600" (click)="openModal()">
+    Merenda
+  </button>
+</div>
+
+<div [id]="modalName" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal">
+  <div class="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md">
+    <div class="flex justify-end p-2">
+       <!-- bottone close modal  -->
+      <button (click)="closeModal()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-6 pt-0 text-center">
+      <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-1 px-4">
+            <form>
+                <div>
+                  <!-- label merenda  -->
+                    <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Merenda</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <input id="merenda" name="merenda" placeholder="merenda" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 mt-5">
+                        <div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+      <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-1 px-4">
+          <form>
+            <div>
+              <!-- box per scrivere le varie cose dello merenda  -->
+              <div class="mt-1 relative rounded-md shadow-sm flex items-center">
+                <input id="merenda" name="merenda" placeholder="merenda" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 mt-5">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-1 px-4">
+            <form>
+                <div>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <input id="merenda" name="merenda" placeholder="merenda" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 mt-5">
+                        <div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>  
+      <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-1 px-4">
+            <form>
+                <div>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <input id="merenda" name="merenda" placeholder="merenda" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 mt-5">
+                        <div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-normal text-gray-500 mt-5 mb-6">Are you sure you want to delete this user?</h3>
+        
+        <!-- Pulsante "edit" -->
+        <a href="#" (click)="closeModal()" class="edit-button" style="display: inline-flex; align-items: center; height: 44px;">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+          <span class="material-symbols-outlined">
+            edit
+          </span>
+        </a>
+        
+        <!-- Pulsante "Save" -->
+        <a href="#" (click)="closeModal()" class="save-button" style="display: inline-flex; align-items: center; height: 44px;">
+          Salva
+        </a>
+      </div>
+  </div>
+</div>
+</div>

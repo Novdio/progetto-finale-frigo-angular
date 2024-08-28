@@ -1,0 +1,23 @@
+<div class="emoji-container ml-9 mt-7" >
+    <span 
+      id="happy"
+      class="material-symbols-outlined custom-icon"
+      [class.active]="selectedEmoji === 'happy'"
+      (click)="selectEmoji('happy')">
+      sentiment_satisfied
+    </span>
+    <span 
+      id="me"
+      class="material-symbols-outlined custom-icon"
+      [class.active]="selectedEmoji === 'me'"
+      (click)="selectEmoji('me')">
+      sentiment_neutral
+    </span>
+    <span 
+      id="sad"
+      class="material-symbols-outlined custom-icon"
+      [class.active]="selectedEmoji === 'sad'"
+      (click)="selectEmoji('sad')">
+      sentiment_dissatisfied
+    </span>
+  </div>
