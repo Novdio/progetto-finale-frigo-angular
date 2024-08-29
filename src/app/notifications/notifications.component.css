@@ -1,0 +1,13 @@
+.notifica
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: flex-end;
+	align-content: stretch;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}

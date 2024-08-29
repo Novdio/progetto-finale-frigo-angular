@@ -43,4 +43,5 @@ export const routes: Routes = [
     component: AboutUsComponent,
     //canActivate: [LoggedGuardService],
   },
+  
 ];
