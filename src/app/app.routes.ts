@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FrigoComponent } from './frigo/frigo.component';
 import { LoggedGuardService } from './services/guard/logged-guard.service';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { MonitoraggioComponent } from './monitoraggio-salute/monitoraggio-salute.component';
 
 export const routes: Routes = [
   {
@@ -43,5 +44,10 @@ export const routes: Routes = [
     component: AboutUsComponent,
     //canActivate: [LoggedGuardService],
   },
+  {
+    path: 'monitoraggio',
+    component: MonitoraggioComponent,
+    //canActivate: [LoggedGuardService],
+  }
   
 ];
