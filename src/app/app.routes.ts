@@ -6,16 +6,35 @@ import { ConfirmationPageComponent } from './confirmation-page/confirmation-page
 import { RegistrationSuccesfullComponent } from './registration-succesfull/registration-succesfull.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ProfileComponent } from './profile/profile.component';
-import { MonitoraggioComponent } from './monitoraggio-salute/monitoraggio-salute.component';
+import { FrigoComponent } from './frigo/frigo.component';
+import { LoggedGuardService } from './services/guard/logged-guard.service';
 
-export const routes: Routes = 
-[
-    {path:"",component:HomeComponent},
-    {path:"login",component:FormLoginComponent},
-    {path:"signin",component:FormSigninComponent},
-    {path:"confirmation/:token",component:ConfirmationPageComponent},
-    {path:"registrationSuccessfull",component:RegistrationSuccesfullComponent},
-    {path:"agenda",component:AgendaComponent},
-    {path:"profile",component:ProfileComponent},
-    {path:"monitoraggioSalute",component:MonitoraggioComponent}
+export const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [LoggedGuardService],
+  },
+  { path: 'login', component: FormLoginComponent },
+  { path: 'signin', component: FormSigninComponent },
+  { path: 'confirmation/:token', component: ConfirmationPageComponent },
+  {
+    path: 'registrationSuccessfull',
+    component: RegistrationSuccesfullComponent,
+  },
+  {
+    path: 'agenda',
+    component: AgendaComponent,
+    canActivate: [LoggedGuardService],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    // canActivate: [LoggedGuardService],
+  },
+  {
+    path: 'frigo',
+    component: FrigoComponent,
+    // canActivate: [LoggedGuardService],
+  },
 ];
