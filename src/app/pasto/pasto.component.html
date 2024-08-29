@@ -13,7 +13,7 @@
 
 <div class="flex items-center py-8 px-8">
     <label class="inline-flex items-center mr-2" [for]="modalName+'check'">
-      <input [id]="modalName+'check'" type="checkbox" class="w-4 h-4  accent-green-600">
+      <input [checked]="meal.checked" [id]="modalName+'check'" type="checkbox" class="w-4 h-4  accent-green-600">
     </label>
     
     <!-- bottone modal  -->
@@ -38,13 +38,16 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg> -->
         <label for="email" class="block text-sm font-medium leading-5  text-gray-700">{{meal.meal}}</label>
-        <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md"  *ngFor="let n of [].constructor(4); let i = index">
+        @for (pasto of pasti; track $index) {
+
+        
+        <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md" >
           <div class="bg-white py-1 px-4">
               <form>
                   <div>
                     <!-- label colazione  -->
                       <div class="mt-1 relative rounded-md shadow-sm">
-                          <input [id]="modalName+'pasto'+i" [name]="modalName+'pasto'+i" placeholder="piatto" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 mt-5">
+                          <input [(ngModel)]="pasti[$index]" [id]="modalName+'pasto'+$index" [name]="modalName+'pasto'+$index" placeholder="piatto" type="text" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 mt-5">
                           <div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                               <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                                   <path fill-rule="evenodd"
@@ -57,6 +60,7 @@
               </form>
           </div>
         </div>  
+      }
         <!-- <div class="mt-1 sm:mx-auto sm:w-full sm:max-w-md">
           <div class="bg-white py-1 px-4">
               <form>
@@ -92,7 +96,7 @@
           </button>
           
           <!-- Pulsante "Save" -->
-          <a href="#" (click)="save() ; closeModal()" class="save-button" style="display: inline-flex; align-items: center; height: 44px;">
+          <a (click)="save() ;" class="save-button" style="display: inline-flex; align-items: center; height: 44px;">
             Salva
           </a>
         </div>

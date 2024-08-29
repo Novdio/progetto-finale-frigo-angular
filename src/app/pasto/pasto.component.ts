@@ -2,21 +2,25 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Meal } from '../model/Meal';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pasto',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink, FormsModule],
   templateUrl: './pasto.component.html',
   styleUrl: './pasto.component.css'
 })
 export class PastoComponent implements OnInit {
-  constructor(){}
+  constructor(private http:HttpClient){}
   @Input()meal!:Meal;
-
+  pasti:string[] = []
   modalName!:string;
   
-  ngOnInit(): void {
+  ngOnInit(): void {;
+    this.pasti = [...this.meal.pasti]
+      for(let i = this.pasti.length; i<4; i++) this.pasti.push("");
       this.modalName=this.meal.meal+this.meal.id;
   }
   isEditing: boolean = false;
@@ -61,6 +65,8 @@ export class PastoComponent implements OnInit {
   }
 
   save(){
-    
+    this.meal.checked = true;
+    this.meal.pasti = this.pasti;
+    this.http.put("/api/meal/"+this.meal.id,this.meal).subscribe(resp => this.closeModal());
   }
 }
