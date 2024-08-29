@@ -63,7 +63,7 @@ export class ProfileComponent implements OnInit {
           {
             next: data => {
               this.saveToLocalStorage();
-            },
+            },  
             error: err => {
               console.error('Error updating info:', err);
             }
