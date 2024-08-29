@@ -3,18 +3,24 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
-import { min } from 'rxjs';
 import { IaService } from '../services/ia.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule, NgClass],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ReactiveFormsModule,
+    NgClass,
+    FormsModule,
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -25,7 +31,16 @@ export class ProfileComponent implements OnInit {
     private ia: IaService
   ) {}
 
-  accordionOpened: { [key: string]: boolean } = { rec1: false, rec2: false };
+  ricetta: string = localStorage.getItem('ricetta')!;
+  ricetta2: string = localStorage.getItem('ricetta2')!;
+  ricetta3: string = localStorage.getItem('ricetta3')!;
+  ricetta4: string = localStorage.getItem('ricetta4')!;
+  accordionOpened: { [key: string]: boolean } = {
+    rec1: false,
+    rec2: false,
+    rec3: false,
+    rec4: false,
+  };
 
   toggleAccordion(recipe: string) {
     // Controllo per evitare errori di runtime
@@ -99,8 +114,6 @@ export class ProfileComponent implements OnInit {
     localStorage.setItem('age', this.profileInfo.value.age);
     localStorage.setItem('sex', this.profileInfo.value.sex);
   }
-
-  ricetta: string = '';
 
   ricettaRandom() {
     this.ia.getConsigliaRicetta().subscribe((resp) => (this.ricetta = resp[0]));

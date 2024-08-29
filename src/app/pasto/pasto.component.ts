@@ -1,22 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Meal } from '../model/Meal';
 
 @Component({
-  selector: 'app-cena',
+  selector: 'app-pasto',
   standalone: true,
   imports: [CommonModule,RouterLink],
-  templateUrl: './cena.component.html',
-  styleUrls: ['./cena.component.css','../modal.css']
+  templateUrl: './pasto.component.html',
+  styleUrl: './pasto.component.css'
 })
-export class CenaComponent implements OnInit {
+export class PastoComponent implements OnInit {
   constructor(){}
-  @Input()day!:number;
+  @Input()meal!:Meal;
 
   modalName!:string;
   
   ngOnInit(): void {
-      this.modalName='cenaConfirm'+this.day;
+      this.modalName=this.meal.meal+this.meal.id;
   }
   isEditing: boolean = false;
 
@@ -57,5 +58,9 @@ export class CenaComponent implements OnInit {
       modal.style.display = 'none';
     });
     document.body.classList.remove('overflow-y-hidden');
+  }
+
+  save(){
+    
   }
 }

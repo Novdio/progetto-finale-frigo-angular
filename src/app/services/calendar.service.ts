@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Calendar } from '../model/Calendar';
 import { Observable } from 'rxjs';
+import { Calendar } from '../model/Calendar';
+import { Meal } from '../model/Meal';
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +19,9 @@ export class CalendarService {
       `api/calendar/${parseInt(localStorage.getItem(`id`)!)}`,
       payload
     );
+  }
+
+  addMeal(id : number, meal : Meal){
+    return this.http.post(`api/calendar/${id}`, meal);
   }
 }

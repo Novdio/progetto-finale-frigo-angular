@@ -8,12 +8,13 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FrigoComponent } from './frigo/frigo.component';
 import { LoggedGuardService } from './services/guard/logged-guard.service';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [LoggedGuardService],
+    // canActivate: [LoggedGuardService],
   },
   { path: 'login', component: FormLoginComponent },
   { path: 'signin', component: FormSigninComponent },
@@ -25,7 +26,7 @@ export const routes: Routes = [
   {
     path: 'agenda',
     component: AgendaComponent,
-    canActivate: [LoggedGuardService],
+    // canActivate: [LoggedGuardService],
   },
   {
     path: 'profile',
@@ -35,7 +36,12 @@ export const routes: Routes = [
   {
     path: 'frigo',
     component: FrigoComponent,
-    // canActivate: [LoggedGuardService],
+    //canActivate: [LoggedGuardService],
+  },
+  {
+    path: 'aboutus',
+    component: AboutUsComponent,
+    //canActivate: [LoggedGuardService],
   },
   
 ];
