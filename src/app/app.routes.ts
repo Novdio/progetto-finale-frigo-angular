@@ -6,6 +6,7 @@ import { ConfirmationPageComponent } from './confirmation-page/confirmation-page
 import { RegistrationSuccesfullComponent } from './registration-succesfull/registration-succesfull.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FrigoComponent } from './frigo/frigo.component';
 import { LoggedGuardService } from './services/guard/logged-guard.service';
 
 export const routes: Routes = [
@@ -29,6 +30,11 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    //canActivate: [LoggedGuardService],
+    // canActivate: [LoggedGuardService],
+  },
+  {
+    path: 'frigo',
+    component: FrigoComponent,
+    // canActivate: [LoggedGuardService],
   },
 ];
