@@ -5,7 +5,7 @@
       class="grid grid-cols-1 col-span-1 sm:grid-cols-1 gap-10 mt-10 p-1 ml-[3rem]"
     >
       <div
-        class="group relative cursor-pointer overflow-hidden w-[40rem] px-1 pt-6 pb-4 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]"
+        class="group relative cursor-pointer overflow-hidden w-[43rem] px-1 pt-6 pb-4 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl mx-auto rounded-lg hover:bg-[#B3E5B7]"
       >
         <div class="relative z-10 mx-auto">
           <div
@@ -14,7 +14,7 @@
             <!-- Titolo -->
             <div class="text-center">
               <h4 class="font-bold text-base text-primary tracking-normal">
-                Ricetti ggs
+                Cronologia ricette
               </h4>
               <p>Ricette giornaliere di tutti i gusti!</p>
             </div>
@@ -23,7 +23,7 @@
               <li>
                 <button
                   (click)="toggleAccordion('rec1')"
-                  class="w-full text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                  class="w-11/12 text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
                 >
                   Ricetta 1
                   <span id="icon-rec1" class="float-right">&#9660;</span>
@@ -32,35 +32,77 @@
                 <div
                   id="content-rec1"
                   [ngClass]="{ 'max-h-0': !accordionOpened['rec1'] }"
-                  class="overflow-hidden transition-all duration-300 ease-in-out"
+                  class="overflow-hidden transition-all duration-300 ease-in-out w-11/12"
                 >
-                  <p class="text-sm text-gray-700 mt-2">
-                    Mini descrizione della ricetta 1, che offre una panoramica
-                    veloce.
-                  </p>
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="relative bg-inherit">
+                      <p>{{ ricetta }}</p>
+                    </div>
+                  </div>
                 </div>
               </li>
               <li>
                 <button
-                  (click)="ricettaRandom()"
-                  class="w-full text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                  (click)="toggleAccordion('rec2')"
+                  class="w-11/12 text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
                 >
                   Ricetta 2
-
-                  <span id="icon-rec2" class="float-right">&#9660;</span>
+                  <span id="icon-rec1" class="float-right">&#9660;</span>
+                </button>
+                <div
+                  id="content-rec1"
+                  [ngClass]="{ 'max-h-0': !accordionOpened['rec2'] }"
+                  class="overflow-hidden transition-all duration-300 ease-in-out w-11/12"
+                >
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="relative bg-inherit">
+                      <p>{{ ricetta2 }}</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <button
+                  (click)="toggleAccordion('rec3')"
+                  class="w-11/12 text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                  Ricetta 3
+                  <span id="icon-rec1" class="float-right">&#9660;</span>
+                </button>
+                <div
+                  id="content-rec1"
+                  [ngClass]="{ 'max-h-0': !accordionOpened['rec3'] }"
+                  class="overflow-hidden transition-all duration-300 ease-in-out w-11/12"
+                >
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="relative bg-inherit">
+                      <p>{{ ricetta3 }}</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Aggiungi altre ricette qui -->
+              </li>
+              <li>
+                <button
+                  (click)="toggleAccordion('rec4')"
+                  class="w-11/12 text-left font-semibold text-gray-800 bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                  Ricetta 4
+                  <span id="icon-rec1" class="float-right">&#9660;</span>
                   <!-- Icona per il menu a serranda -->
                 </button>
                 <div
-                  id="content-rec2"
-                  [ngClass]="{ 'max-h-0': !accordionOpened['rec2'] }"
-                  class="overflow-hidden transition-all duration-300 ease-in-out"
+                  id="content-rec1"
+                  [ngClass]="{ 'max-h-0': !accordionOpened['rec4'] }"
+                  class="overflow-hidden transition-all duration-300 ease-in-out w-11/12"
                 >
-                  <p class="text-sm text-gray-700 mt-2">
-                    Mini descrizione della ricetta 2, con dettagli succinti.
-                  </p>
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="relative bg-inherit">
+                      <p>{{ ricetta4 }}</p>
+                    </div>
+                  </div>
                 </div>
               </li>
-              <!-- Aggiungi altre ricette qui -->
             </ul>
           </div>
         </div>
@@ -146,7 +188,7 @@
               <label class="text-gray-600 dark:text-black">Età</label>
               <input
                 formControlName="age"
-                placeholder="almeno 1"
+                placeholder="25"
                 class="w-full py-3 border border-slate-500 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-[#F3FFE7] dark:text-black"
                 type="text"
               />

@@ -1,14 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CenaComponent } from '../cena/cena.component';
-import { ColazioneComponent } from '../colazione/colazione.component';
 import { FaccineComponent } from '../faccine/faccine.component';
-import { MerendaComponent } from '../merenda/merenda.component';
 import { Calendar } from '../model/Calendar';
-import { PranzoComponent } from '../pranzo/pranzo.component';
 import { CalendarService } from '../services/calendar.service';
-import { SpuntinoComponent } from '../spuntino/spuntino.component';
+import { PastoComponent } from '../pasto/pasto.component';
+
 
 @Component({
   selector: 'app-agenda',
@@ -16,12 +13,8 @@ import { SpuntinoComponent } from '../spuntino/spuntino.component';
   imports: [
     CommonModule,
     RouterLink,
-    ColazioneComponent,
-    SpuntinoComponent,
-    PranzoComponent,
-    MerendaComponent,
-    CenaComponent,
     FaccineComponent,
+    PastoComponent
   ],
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.css',
@@ -38,4 +31,6 @@ export class AgendaComponent {
         console.log(data);
       });
   }
+
+
 }
