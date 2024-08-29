@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FaccineComponent } from '../faccine/faccine.component';
 import { Calendar } from '../model/Calendar';
@@ -31,6 +31,5 @@ export class AgendaComponent {
         console.log(data);
       });
   }
-
 
 }
