@@ -20,7 +20,7 @@ export const routes: Routes = [
   {
     path: 'agenda',
     component: AgendaComponent,
-    canActivate: [LoggedGuardService],
+    // canActivate: [LoggedGuardService],
   },
   {
     path: 'profile',
