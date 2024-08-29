@@ -1,27 +1,50 @@
 <div class="bg-[#FFFAF0] min-h-screen flex items-center">
-    <div class="w-full ">
-        <!-- <h2 class="text-center text-blue-400 font-bold text-2xl uppercase mb-10">Fill out our form</h2> -->
-        <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2 " >
-            <form action="" [formGroup]="formLogin" (ngSubmit)="loginUser()">
-             
-                <div class="mb-5">
-                    <label for="name" class="block mb-2 font-bold text-gray-600">Username</label>
-                    <input formControlName="username" type="email" id="name" name="name" placeholder="Put in your email." class="border border-gray-300 shadow p-3 w-full rounded mb-">
-                </div>
-
-                <div class="mb-5">
-                    <label for="twitter" class="block mb-2 font-bold text-gray-600">Password</label>
-                    <input formControlName="password" type="password" id="twitter" name="twitter" placeholder="Put your password." class="border border-red-300 shadow p-3 w-full rounded mb-">
-                </div>
-                <button class="block w-full bg-[#8CC084] text-white font-bold p-4 rounded-lg">Submit</button>
-                <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
-                    Or
-                    <a href="/signin"
-                        class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                        create a new account
-                    </a>
-                </p>
-            </form>
+  <div class="w-full">
+    <!-- <h2 class="text-center text-blue-400 font-bold text-2xl uppercase mb-10">Fill out our form</h2> -->
+    <div class="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
+      <form action="" [formGroup]="formLogin" (ngSubmit)="loginUser()">
+        <div class="mb-5">
+          <label for="name" class="block mb-2 font-bold text-gray-600"
+            >Username</label
+          >
+          <input
+            formControlName="username"
+            type="email"
+            id="name"
+            name="name"
+            placeholder="Inserisci la tua email."
+            class="border border-gray-300 shadow p-3 w-full rounded mb-"
+          />
         </div>
+
+        <div class="mb-5">
+          <label for="twitter" class="block mb-2 font-bold text-gray-600"
+            >Password</label
+          >
+          <input
+            formControlName="password"
+            type="password"
+            id="twitter"
+            name="twitter"
+            placeholder="Inserisci la tua password."
+            class="border border-red-300 shadow p-3 w-full rounded mb-"
+          />
+        </div>
+        <button
+          class="block w-full bg-[#8CC084] text-white font-bold p-4 rounded-lg"
+        >
+          Entra
+        </button>
+        <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
+          O
+          <a
+            href="/signin"
+            class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+          >
+            Crea un nuovo profilo
+          </a>
+        </p>
+      </form>
     </div>
+  </div>
 </div>

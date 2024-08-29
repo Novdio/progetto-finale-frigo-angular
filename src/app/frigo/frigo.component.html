@@ -1,1 +1,135 @@
-<p>frigo works!</p>
+<div class="relative w-full h-screen">
+  <img
+    class="h-full w-full object-cover fixed top-0 left-0 z-0"
+    src="https://static.vecteezy.com/ti/foto-gratuito/p1/24570332-frigorifero-pieno-di-salutare-cibo-frutta-e-la-verdura-orizzontale-un-ha-aperto-frigo-pieno-di-fresco-frutta-e-la-verdura-ai-generato-gratuito-foto.jpg"
+    alt="Random image"
+  />
+  <div class="absolute inset-0 bg-gray-700 opacity-60 z-0"></div>
+
+  <div class="absolute inset-x-0 top-10 flex justify-center z-10">
+    <h2 class="text-white text-3xl font-bold">Benvenuti nel tuo frigo!</h2>
+  </div>
+
+  <div class="absolute inset-0 flex items-center justify-between px-8 z-20">
+    <div class="w-1/2 flex justify-center">
+      <div class="w-full max-w-lg p-8 flex flex-col justify-between h-[500px]">
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 flex flex-col flex-grow space-y-6"
+        >
+          <h2 class="text-lg font-medium text-center">
+            Inserisci gli ingredienti nel tuo frigo!
+          </h2>
+          <form class="flex flex-col space-y-6 flex-grow">
+            <div
+              class="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0"
+            >
+              <div class="flex-1">
+                <label
+                  for="ingredient-1"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Ingrediente</label
+                >
+                <input
+                  type="text"
+                  name="ingredient-1"
+                  id="ingredient-1"
+                  placeholder="Pasta"
+                  class="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                  [(ngModel)]="ingrediente1"
+                />
+              </div>
+              <div class="flex-1">
+                <label
+                  for="ingredient-2"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Ingrediente</label
+                >
+                <input
+                  type="text"
+                  name="ingredient-2"
+                  id="ingredient-2"
+                  placeholder="Guanciale"
+                  class="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                  [(ngModel)]="ingrediente2"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0"
+            >
+              <div class="flex-1">
+                <label
+                  for="ingredient-3"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Ingrediente</label
+                >
+                <input
+                  type="text"
+                  name="ingredient-3"
+                  id="ingredient-3"
+                  placeholder="Pepe"
+                  class="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                  [(ngModel)]="ingrediente3"
+                />
+              </div>
+              <div class="flex-1">
+                <label
+                  for="ingredient-4"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Ingrediente</label
+                >
+                <input
+                  type="text"
+                  name="ingredient-4"
+                  id="ingredient-4"
+                  placeholder="Pecorino"
+                  class="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
+                  [(ngModel)]="ingrediente4"
+                />
+              </div>
+            </div>
+            <div class="flex flex-full justify-end gap-4 items-center w-full">
+              <button
+                [disabled]="disabled"
+                (click)="ricettaRequest()"
+                type="submit"
+                class="bg-[#8cc084] hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg focus:outline-none h-full"
+              >
+                Suggerisci ricetta
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-1/2 flex justify-center">
+      <div class="w-full max-w-lg p-8 flex flex-col justify-between h-[500px]">
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 flex flex-col flex-grow space-y-6"
+        >
+          <h2 class="text-lg font-medium text-center">Ricetta consigliata</h2>
+          <form class="flex flex-col space-y-6 flex-grow">
+            <div
+              class="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0"
+            >
+              <div class="flex-1 overflow-auto h-[300px]">
+                <p
+                  name="ingredient-5"
+                  id="ingredient-5"
+                  rows="12"
+                  class="w-full h-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500 resize-none overflow-auto"
+                >
+                  @if(disabled){
+                  <mat-spinner class="flex flex-full fixed"></mat-spinner>
+                  }
+                  {{ ricette.question }}
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
