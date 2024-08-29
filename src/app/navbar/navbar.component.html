@@ -19,6 +19,7 @@
       >
         ADMIN
       </button>
+      
       @if (!auth.isLogged()) {
       <div class="flex flex-wrap justify-center gap-6">
         <!-- <a class="relative" routerLink="/login">
@@ -46,6 +47,7 @@
         </div>
       </div>
       } @else {
+      
       <div class="z-50">
         <div class="group cursor-pointer">
           <div class="my-9">
@@ -57,7 +59,6 @@
               </svg>
             </a>
           </div>
-
           <div
             class="franco invisible absolute flex w-auto flex-col bg-gray-100 py-1 px-7 text-gray-800 shadow-xl group-hover:visible"
           >
