@@ -10,6 +10,18 @@
         >
           HOME
         </button>
+        <button
+          class="home-button font-bold text-white hover:text-gray-400 mx-2"
+          routerLink="/frigo"
+        >
+          FRIGO
+        </button>
+        <button
+          class="home-button font-bold text-white hover:text-gray-400 mx-2"
+          routerLink="/aboutus"
+        >
+          CHI SIAMO
+        </button>
       </div>
       <button
         [ngClass]="{ hidden: !auth.userHasRole('ADMIN') }"
