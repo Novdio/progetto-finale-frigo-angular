@@ -8,6 +8,7 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FrigoComponent } from './frigo/frigo.component';
 import { LoggedGuardService } from './services/guard/logged-guard.service';
+import { MonitoraggioComponent } from './monitoraggio-salute/monitoraggio-salute.component';
 
 export const routes: Routes = [
   {
@@ -37,4 +38,9 @@ export const routes: Routes = [
     component: FrigoComponent,
     // canActivate: [LoggedGuardService],
   },
+  {
+    path: 'monitoraggio',
+    component: MonitoraggioComponent,
+    canActivate: [LoggedGuardService]
+  }
 ];

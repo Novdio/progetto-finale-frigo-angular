@@ -3,32 +3,32 @@
   <div class="form-container">
     <form [formGroup]="monitoraggioFormBfp" (ngSubmit)="onSubmitBfp()">
       <div>
-        <h1>CALCOLO BFP (Percentuale di Grasso Corporeo)</h1>
+        <h1><strong>CALCOLO BFP</strong> (Percentuale di Grasso Corporeo)</h1>
       </div>
       <br>
       <div>
-        <label for="altezza">Altezza (cm):</label>
+        <label for="altezza"><b>Altezza</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
       </div>
       <div>
-        <label for="girovita">Girovita (cm):</label>
+        <label for="girovita"><b>Girovita</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="girovita" formControlName="girovita" type="number">
       </div>
       <div>
-        <label for="collo">Collo (cm):</label>
+        <label for="collo"><b>Collo</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="collo" formControlName="collo" type="number">
       </div>
       <div>
-        <label for="fianchi">Fianchi (cm):</label>
+        <label for="fianchi"><b>Fianchi</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="fianchi" formControlName="fianchi" type="number">
       </div>
       <div>
-        <label for="sesso">Sesso:</label>
+        <label for="sesso"><b>Sesso</b>:</label><br>
           <select class="rounded-lg ml-3" id="sesso" formControlName="sesso">
             <option value="M">Maschio</option>
             <option value="F">Femmina</option>
           </select>
-      </div>
+      </div><br>
       <button type="submit" [disabled]="!monitoraggioFormBfp.valid">Calcola BFP</button>
       <div *ngIf="bfp !== null">
         <p>Il tuo BFP è: {{ bfp }} %</p>
@@ -37,32 +37,44 @@
   </div>
 
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormMetabolism" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormBmr" (ngSubmit)="onSubmitBmr()">
       <div>
-        <h1>CALCOLO BMR E TDEE (Tasso Metabolico Basale, Dispendio Energetico Totale Giornaliero)</h1><br>
+        <h1><strong>CALCOLO BMR</strong> (Tasso Metabolico Basale)</h1><br>
       </div>
       <div>
-        <label for="peso">Peso (kg):</label>
+        <label for="peso"><b>Peso</b> (kg):</label><br>
         <input class="rounded-lg ml-3" id="peso" formControlName="peso" type="number">
       </div>
       <div>
-        <label for="altezza">Altezza (cm):</label>
+        <label for="altezza"><b>Altezza</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
       </div>
       <div>
-        <label for="età">Età:</label>
-        <input class="rounded-lg ml-3" id="età" formControlName="età" type="number">
+        <label for="eta"><b>Età</b>:</label><br>
+        <input class="rounded-lg ml-3" id="eta" formControlName="eta" type="number">
       </div>
       <div>
-        <label for="sesso">Sesso:</label>
+        <label for="sesso"><b>Sesso</b>:</label><br>
         <select class="rounded-lg ml-3" id="sesso" formControlName="sesso">
           <option value="M">Maschio</option>
           <option value="F">Femmina</option>
         </select>
+      </div><br><br><br>
+      <button type="submit" [disabled]="!monitoraggioFormBmr.valid">Calcola BMR</button>
+      <div *ngIf="bmr !== null">
+        <p>Il tuo BMR è: {{ bmr }} kcal/giorno</p>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="monitoraggioFormTdee" (ngSubmit)="onSubmitTdee()">
+      <div>
+        <h1><strong>CALCOLO TDEE</strong> (Dispendio Energetico Totale Giornaliero)</h1><br>
       </div>
       <div>
-        <label for="livelloAttività">Livello di Attività:</label>
-        <select class="rounded-lg ml-3" id="livelloAttività" formControlName="livelloAttività">
+        <label for="livelloAttivita"><b>Livello di Attività</b>:</label><br>
+        <select id="livelloAttivita" formControlName="livelloAttivita">
           <option value="sedentario">Sedentario</option>
           <option value="leggero">Leggero</option>
           <option value="moderato">Moderato</option>
@@ -70,10 +82,13 @@
           <option value="moltoIntenso">Molto Intenso</option>
         </select>
       </div>
-      <button type="submit" [disabled]="!monitoraggioFormMetabolism.valid">Calcola BMR e TDEE</button>
-      <div *ngIf="bmr !== null && tdee !== null">
-        <p>Il tuo BMR è: {{ bmr }} kcal/giorno</p>
-        <p>Il tuo TDEE è: {{ tdee }} kcal/giorno</p>
+      <div>
+        <label for="bmr"><b>BMR</b> (Tasso Metabolico Basale):</label><br>
+        <input id="bmr" formControlName="bmr" type="number">
+      </div><br><br><br><br><br><br><br><br>
+      <button type="submit" [disabled]="!monitoraggioFormTdee.valid">Calcola TDEE</button>
+      <div *ngIf="tdee !== null" class="result">
+        <p>Il tuo TDEE è: {{ tdee }} %</p>
       </div>
     </form>
   </div>
@@ -81,19 +96,19 @@
   <div class="form-container">
     <form [formGroup]="monitoraggioFormIbw" (ngSubmit)="onSubmitIbw()">
       <div>
-        <h1>CALCOLO IBW (Peso Ideale)</h1> <br>
+        <h1><strong>CALCOLO IBW</strong> (Peso Ideale)</h1> <br>
       </div>
       <div>
-        <label for="altezza">Altezza (cm):</label>
+        <label for="altezza"><b>Altezza</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
       </div>
       <div>
-        <label for="sesso">Sesso:</label>
+        <label for="sesso"><b>Sesso</b>:</label><br>
         <select class="rounded-lg ml-3" id="sesso" formControlName="sesso">
           <option value="M">Maschio</option>
           <option value="F">Femmina</option>
         </select>
-      </div>
+      </div><br>
       <button type="submit" [disabled]="!monitoraggioFormIbw.valid">Calcola IBW</button>
       <div *ngIf="ibw !== null">
         <p>Il tuo IBW è: {{ ibw }} kg</p>
@@ -102,19 +117,19 @@
   </div>
 
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormMetabolism" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormLbm" (ngSubmit)="onSubmitLbm()">
       <div>
-        <h1>CALCOLO LBM (Massa Corporea Magra)</h1><br>
+        <h1><strong>CALCOLO LBM</strong> (Massa Corporea Magra)</h1><br>
       </div>
       <div>
-        <label for="peso">Peso (kg):</label>
+        <label for="peso"><b>Peso</b> (kg):</label><br>
         <input class="rounded-lg ml-3" id="peso" formControlName="peso" type="number">
       </div>
       <div>
-        <label for="bfp">Percentuale di Grasso Corporeo (%):</label>
-        <input class="rounded-lg ml-3" id="bfp" formControlName="bfp" type="number">
-      </div>
-      <button type="submit" [disabled]="!monitoraggioFormMetabolism.valid">Calcola LBM</button>
+        <label for="bfp"><b>BFP</b> (%):</label><br>
+        <input class="rounded-lg ml-3" id="bfp" formControlName="bfp" type="number" [(ngModel)]="bfp">
+      </div><br>
+      <button type="submit" [disabled]="!monitoraggioFormLbm.valid">Calcola LBM</button>
       <div *ngIf="lbm !== null">
         <p>La tua LBM è: {{ lbm }} kg</p>
       </div>
@@ -122,18 +137,18 @@
   </div>
 
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormImc" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormImc" (ngSubmit)="onSubmitImc()">
       <div>
-        <h1>CALCOLO IMC (Indice Massa Corporea)</h1><br>
+        <h1><strong>CALCOLO IMC</strong> (Indice Massa Corporea)</h1><br>
       </div>
       <div>
-        <label for="peso">Peso (kg):</label>
+        <label for="peso"><b>Peso</b> (kg):</label><br>
         <input class="rounded-lg ml-3" id="peso" formControlName="peso" type="number">
       </div>
       <div>
-        <label for="altezza">Altezza (cm):</label>
+        <label for="altezza"><b>Altezza</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
-      </div>
+      </div><br>
       <button type="submit" [disabled]="!monitoraggioFormImc.valid">Calcola IMC</button>
       <div *ngIf="imc !== null">
         <p>Il tuo IMC è: {{ imc }}</p>
@@ -142,19 +157,19 @@
   </div>
 
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormBfp" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormWhr" (ngSubmit)="onSubmitWhr()">
       <div>
-        <h1>CALCOLO WHR (Rapporto Vita/Fianchi)</h1><br>
+        <h1><strong>CALCOLO WHR </strong> (Rapporto Vita/Fianchi)</h1><br>
       </div>
       <div>
-        <label for="girovita">Girovita (cm):</label>
+        <label for="girovita"><b>Girovita</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="girovita" formControlName="girovita" type="number">
       </div>
       <div>
-        <label for="fianchi">Fianchi (cm):</label>
+        <label for="fianchi"><b>Fianchi</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="fianchi" formControlName="fianchi" type="number">
-      </div>
-      <button type="submit" [disabled]="!monitoraggioFormBfp.valid">Calcola WHR</button>
+      </div><br>
+      <button type="submit" [disabled]="!monitoraggioFormWhr.valid">Calcola WHR</button>
       <div *ngIf="whr !== null">
         <p>Il tuo WHR è: {{ whr }}</p>
       </div>
@@ -162,19 +177,19 @@
   </div>
 
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormImc" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormWHtR" (ngSubmit)="onSubmitWhtr()">
       <div>
-        <h1>CALCOLO WHtR (Rapporto Vita/Altezza)</h1><br>
+        <h1><strong>CALCOLO WHtR</strong> (Rapporto Vita/Altezza)</h1><br>
       </div>
       <div>
-        <label for="girovita">Girovita (cm):</label>
+        <label for="girovita"><b>Girovita</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="girovita" formControlName="girovita" type="number">
       </div>
       <div>
-        <label for="altezza">Altezza (cm):</label>
+        <label for="altezza"><b>Altezza</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
-      </div>
-      <button type="submit" [disabled]="!monitoraggioFormImc.valid">Calcola WHtR</button>
+      </div><br>
+      <button type="submit" [disabled]="!monitoraggioFormWHtR.valid">Calcola WHtR</button>
       <div *ngIf="whtr !== null">
         <p>Il tuo WHtR è: {{ whtr }}</p>
       </div>
@@ -182,21 +197,19 @@
   </div>
 
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormMetabolism" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormFfmi" (ngSubmit)="onSubmitFfmi()">
       <div>
-        <h1>CALCOLO FFMI (Indice di Massa Corporea Magra)</h1><br>
+        <h1><strong>CALCOLO FFMI</strong> (Indice di Massa Corporea Magra)</h1><br>
       </div>
       <div>
-        <label for="altezza">Altezza (cm):</label>
+        <label for="altezza"><b>Altezza</b> (cm):</label><br>
         <input class="rounded-lg ml-3" id="altezza" formControlName="altezza" type="number">
       </div>
-      <!-- PROVA -->
       <div>
-        <label for="lbm">Massa Corporea Magra (%):</label>
+        <label for="lbm"><b>LBM</b> (%):</label><br>
         <input class="rounded-lg ml-3" id="lbm" formControlName="lbm" type="number">
-      </div>
-      <!-- PROVA -->
-      <button type="submit" [disabled]="!monitoraggioFormMetabolism.valid">Calcola FFMI</button>
+      </div><br>
+      <button type="submit" [disabled]="!monitoraggioFormFfmi.valid">Calcola FFMI</button>
       <div *ngIf="ffmi !== null">
         <p>Il tuo FFMI è: {{ ffmi }}</p>
       </div>
@@ -204,25 +217,25 @@
   </div>
   
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormMetabolism" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormProteinIntake" (ngSubmit)="onSubmitProteinIntake()">
       <div>
-        <h1>CALCOLO PROTEIN INTAKE (Fabbisogno Proteico)</h1><br>
+        <h1><strong>CALCOLO PROTEIN INTAKE</strong> (Fabbisogno Proteico)</h1><br>
       </div>
       <div>
-        <label for="peso">Peso (kg):</label>
+        <label for="peso"><b>Peso</b> (kg):</label><br>
         <input class="rounded-lg ml-3" id="peso" formControlName="peso" type="number">
       </div>
       <div>
-        <label for="livelloAttività">Livello di Attività:</label>
-        <select class="rounded-lg ml-3" id="livelloAttività" formControlName="livelloAttività">
+        <label for="livelloAttivita"><b>Livello di Attività</b>:</label><br>
+        <select class="rounded-lg ml-3" id="livelloAttivita" formControlName="livelloAttivita">
           <option value="sedentario">Sedentario</option>
           <option value="leggero">Leggero</option>
           <option value="moderato">Moderato</option>
           <option value="intenso">Intenso</option>
           <option value="moltoIntenso">Molto Intenso</option>
         </select>
-      </div>
-      <button type="submit" [disabled]="!monitoraggioFormMetabolism.valid">Calcola Protein Intake</button>
+      </div><br>
+      <button type="submit" [disabled]="!monitoraggioFormProteinIntake.valid">Calcola Protein Intake</button>
       <div *ngIf="proteinIntake !== null">
         <p>Il tuo Fabbisogno Proteico è: {{ proteinIntake }} g</p>
       </div>
@@ -230,15 +243,19 @@
   </div>
   
   <div class="form-container">
-    <form [formGroup]="monitoraggioFormMetabolism" (ngSubmit)="onSubmitBfp()">
+    <form [formGroup]="monitoraggioFormHydrationStatus" (ngSubmit)="onSubmitHydrationStatus()">
       <div>
-        <h1>CALCOLO HYDRATION STATUS (Stato di Idratazione)</h1><br>
+        <h1><strong>CALCOLO HYDRATION STATUS</strong> (Stato di Idratazione)</h1><br>
       </div>
       <div>
-        <label for="lbm">Massa Corporea Magra (kg):</label>
-        <input class="rounded-lg ml-3" id="lbm" formControlName="lbm" type="number">
+        <label for="peso"><b>Peso</b> (kg):</label><br>
+        <input class="rounded-lg ml-3" id="peso" formControlName="peso" type="number">
       </div>
-      <button type="submit" [disabled]="!monitoraggioFormMetabolism.valid">Calcola Hydration Status</button>
+      <div>
+        <label for="lbm"><b>LBM</b> (kg):</label><br>
+        <input class="rounded-lg ml-3" id="lbm" formControlName="lbm" type="number" [(ngModel)]="lbm">
+      </div><br>
+      <button type="submit" [disabled]="!monitoraggioFormHydrationStatus.valid">Calcola Hydration Status</button>
       <div *ngIf="hydrationStatus !== null">
         <p>Il tuo Stato di Idratazione è: {{ hydrationStatus }} %</p>
       </div>
