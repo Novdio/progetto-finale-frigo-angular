@@ -1,36 +1,33 @@
-  .container 
+  html, body 
   {
-    padding-top: 40px;
-    background-color: #B3E5B7;
-    max-width: 400px;
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    height: 100%;
+    margin: 0;
   }
   
-  .container2 
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Permette di andare a capo quando necessario */
+    
+    gap: 20px; /* Spaziatura tra i contenitori dei form */
+    padding: 30px; /* Spaziatura interna */
+  }
+  
+  .form-container 
   {
-    padding-top: 20px;
-    background-color: #B3E5B7;
-    max-width: 600px;
-    margin-top: 20px;
+    flex: 1 1 calc(33.333% - 20px); /* Tre colonne con gap incluso */
+    box-sizing: border-box; /* Assicura che padding e border siano inclusi nella larghezza */
+    min-width: 300px; /* Dimensione minima per i form */
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    background-color: #B3E5B7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   }
-
-  .flex {
-    display: flex; /* Utilizza Flexbox per i figli diretti */
-    justify-content: space-between; /* Spazio tra gli elementi */
-    align-items: flex-start; /* Allinea gli elementi all'inizio verticale */
-    gap: 20px; /* Spazio tra i container */
-    padding: 20px; /* Padding interno per il wrapper */
-  }
-
+  
   form > div 
   {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   button 
@@ -47,5 +44,3 @@
   {
     background-color: #FFB870;
   }
-
-  

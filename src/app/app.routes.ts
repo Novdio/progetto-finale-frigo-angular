@@ -16,6 +16,6 @@ export const routes: Routes =
     {path:"confirmation/:token",component:ConfirmationPageComponent},
     {path:"registrationSuccessfull",component:RegistrationSuccesfullComponent},
     {path:"agenda",component:AgendaComponent},
-    {path:"profile",component:ProfileComponent},,
+    {path:"profile",component:ProfileComponent},
     {path:"monitoraggioSalute",component:MonitoraggioComponent}
 ];
