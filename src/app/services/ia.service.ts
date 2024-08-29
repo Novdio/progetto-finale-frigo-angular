@@ -21,6 +21,39 @@ export class IaService {
 
     return this.http.post<IaRequest>(this.apiUrl, dto, { headers: headers });
   }
+  sendSecondaRicettaRequest(question: string): Observable<IaRequest> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const dto: IaRequest = {
+      question: question,
+    };
+
+    return this.http.post<IaRequest>(this.apiUrl, dto, { headers: headers });
+  }
+  sendTerzaRicettaRequest(question: string): Observable<IaRequest> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const dto: IaRequest = {
+      question: question,
+    };
+
+    return this.http.post<IaRequest>(this.apiUrl, dto, { headers: headers });
+  }
+  sendQuartaRicettaRequest(question: string): Observable<IaRequest> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const dto: IaRequest = {
+      question: question,
+    };
+
+    return this.http.post<IaRequest>(this.apiUrl, dto, { headers: headers });
+  }
 
   getConsigliaRicetta(): Observable<string[]> {
     return this.http.get<string[]>(`/api/consigliaricetta`);

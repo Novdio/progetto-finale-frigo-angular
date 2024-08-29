@@ -30,11 +30,11 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    // canActivate: [LoggedGuardService],
+    canActivate: [LoggedGuardService],
   },
   {
     path: 'frigo',
     component: FrigoComponent,
-    // canActivate: [LoggedGuardService],
+    canActivate: [LoggedGuardService],
   },
 ];
