@@ -42,7 +42,6 @@ export const routes: Routes = [
   {
     path: 'aboutus',
     component: AboutUsComponent,
-    canActivate: [LoggedGuardService],
   },
   {
     path: 'monitoraggio',
