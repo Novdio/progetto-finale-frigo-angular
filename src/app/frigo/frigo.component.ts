@@ -56,22 +56,19 @@ export class FrigoComponent {
     this.ia.sendRicettaRequest(ingredienti).subscribe({
       next: (resp1) => {
         this.ricette = resp1;
+        this.disabled = false;
 
-        // Seconda chiamata
         this.ia.sendSecondaRicettaRequest(ingredienti).subscribe({
           next: (resp2) => {
             this.ricette2 = resp2;
 
-            // Terza chiamata
             this.ia.sendTerzaRicettaRequest(ingredienti).subscribe({
               next: (resp3) => {
                 this.ricette3 = resp3;
 
-                // Quarta chiamata
                 this.ia.sendQuartaRicettaRequest(ingredienti).subscribe({
                   next: (resp4) => {
                     this.ricette4 = resp4;
-                    this.disabled = false;
                     this.saveToLocalStorage(); // Salva tutte le ricette
                   },
                   error: (err4) => {
