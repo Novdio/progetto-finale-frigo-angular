@@ -23,28 +23,28 @@
             </label>
            </div>
         </td> -->
-        <td *ngFor="let n of [].constructor(7); let i = index">
-          <app-colazione [day]="i"></app-colazione>
+        <td *ngFor="let n of calendar.days; let i = index">
+          <app-pasto [meal]="n.meals[0]"></app-pasto>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let n of [].constructor(7); let i = index">
-          <app-spuntino [day]="i"></app-spuntino>
+        <td *ngFor="let n of calendar.days; let i = index">
+          <app-pasto [meal]="n.meals[1]"></app-pasto>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let n of [].constructor(7); let i = index">
-          <app-pranzo [day]="i"></app-pranzo>
+        <td *ngFor="let n of calendar.days; let i = index">
+          <app-pasto [meal]="n.meals[2]"></app-pasto>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let n of [].constructor(7); let i = index">
-          <app-merenda [day]="i"></app-merenda>
+        <td *ngFor="let n of calendar.days; let i = index">
+          <app-pasto [meal]="n.meals[3]"></app-pasto>
         </td>
       </tr>
       <tr>
-        <td *ngFor="let n of [].constructor(7); let i = index">
-          <app-cena [day]="i"></app-cena>
+        <td *ngFor="let n of calendar.days; let i = index">
+          <app-pasto [meal]="n.meals[4]"></app-pasto>
         </td>
       </tr>
       <tr>

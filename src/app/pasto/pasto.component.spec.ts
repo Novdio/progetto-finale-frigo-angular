@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpuntinoComponent } from './spuntino.component';
+import { PastoComponent } from './pasto.component';
 
-describe('SpuntinoComponent', () => {
-  let component: SpuntinoComponent;
-  let fixture: ComponentFixture<SpuntinoComponent>;
+describe('PastoComponent', () => {
+  let component: PastoComponent;
+  let fixture: ComponentFixture<PastoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SpuntinoComponent]
+      imports: [PastoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SpuntinoComponent);
+    fixture = TestBed.createComponent(PastoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
