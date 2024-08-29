@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Stomp } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-
+import * as Stomp from 'stompjs';
 
 @Injectable({
-  providedIn: 'any'   // root injecta in app e ne crea uno che viene passato a tutti i comp || any lo injecta direttamente nel comp - uno nuovo per ogni comp
+  providedIn: 'root',
 })
-export class StompService 
-{
+export class StompService {
   private socket: any;
   private stompClient: any;
 
@@ -16,17 +14,19 @@ export class StompService
   }
 
   initializeWebSocketConnection(): void {
-    this.socket = new SockJS('http://localhost:8080/websocket'); //mappatura in spring
+    this.socket = new SockJS('http://localhost:8080/websocket');
     this.stompClient = Stomp.over(this.socket);
 
-    this.stompClient.debug = null;
-
     const _this = this;
-    this.stompClient.connect({}, function (frame: any) {
-      // console.log('Connected: ' + frame);
-    }, function(error: any) {
-      console.error('Error: ' + error);
-    });
+    this.stompClient.connect(
+      {},
+      function (frame: any) {
+        console.log('Connected: ' + frame);
+      },
+      function (error: any) {
+        console.error('Error: ' + error);
+      }
+    );
   }
 
   subscribe(topic: string, callback: (message: any) => void): void {
@@ -40,15 +40,13 @@ export class StompService
     }
   }
 
-  private subscribeToTopic(topic: string, callback: (message: any) => void): void {
+  private subscribeToTopic(
+    topic: string,
+    callback: (message: any) => void
+  ): void {
     this.stompClient.subscribe(topic, (message: any) => {
-      // console.log('Received message: ' + message.body);
+      console.log('Received message: ' + message.body);
       callback(message.body);
     });
-  }
-
-  send(destinazione: string, playload: string)
-  {
-    this.stompClient.publish({destinazione: "/ws/"+destinazione, body: playload})
   }
 }
