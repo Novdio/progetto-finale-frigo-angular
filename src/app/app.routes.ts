@@ -27,27 +27,25 @@ export const routes: Routes = [
   {
     path: 'agenda',
     component: AgendaComponent,
-    // canActivate: [LoggedGuardService],
+    canActivate: [LoggedGuardService],
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    // canActivate: [LoggedGuardService],
+    canActivate: [LoggedGuardService],
   },
   {
     path: 'frigo',
     component: FrigoComponent,
-    //canActivate: [LoggedGuardService],
+    canActivate: [LoggedGuardService],
   },
   {
     path: 'aboutus',
     component: AboutUsComponent,
-    //canActivate: [LoggedGuardService],
   },
   {
     path: 'monitoraggio',
     component: MonitoraggioComponent,
-    //canActivate: [LoggedGuardService],
-  }
-  
+    canActivate: [LoggedGuardService],
+  },
 ];
