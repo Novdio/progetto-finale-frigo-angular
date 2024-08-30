@@ -1,14 +1,19 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-carosello',
   standalone: true,
   imports: [],
   templateUrl: './carosello.component.html',
-  styleUrl: './carosello.component.css'
+  styleUrl: './carosello.component.css',
 })
-export class CaroselloComponent implements OnInit, OnDestroy{
-
+export class CaroselloComponent implements OnInit, OnDestroy {
   @ViewChild('carosello') carosello!: ElementRef;
   private intervalId: any;
 
@@ -27,20 +32,20 @@ export class CaroselloComponent implements OnInit, OnDestroy{
   next() {
     this.carosello.nativeElement.scrollBy({
       left: this.carosello.nativeElement.offsetWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
   prev() {
     this.carosello.nativeElement.scrollBy({
       left: -this.carosello.nativeElement.offsetWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
   startAutoplay() {
     this.intervalId = setInterval(() => {
       this.next();
-    }, 15000); // Cambia immagine ogni 15 secondi
+    }, 40000); // Cambia immagine ogni 40 secondi
   }
 }
